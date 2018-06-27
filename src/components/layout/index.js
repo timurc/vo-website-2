@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import s from './style.module.css';
 
 class Template extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Template extends React.Component {
 
         return (
             <div>
-                <h1>
+                <h1 className={s.header}>
                     <Link to={'/'}>vollig ohne website</Link>
                 </h1>
                 {children}

@@ -1,0 +1,14 @@
+.header {
+    animation-name: backgroundTransition ;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes backgroundTransition {
+    from {
+        background: red;
+    }
+    to {
+        background: transparent;
+    }
+}
