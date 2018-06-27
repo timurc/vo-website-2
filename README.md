@@ -1,9 +1,5 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+# völlig ohne Website
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+second version of [our website](https://volligohne.de).
 
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
-
-## Running in development
-`gatsby develop`
+based on [gatsby](https//gatsbyjs.org).
