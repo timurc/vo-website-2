@@ -2,27 +2,25 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 class Template extends React.Component {
+    constructor(props) {
+        super(props);
+        console.log('constructing...');
+    }
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount');
+    }
     render() {
         const { location, children } = this.props;
         const rootPath = `${__PATH_PREFIX__}/`;
-        let header;
 
-        if (location.pathname === rootPath) {
-            header = (
-                <h1>
-                    <Link to={'/'}>Gatsby Starter Blog</Link>
-                </h1>
-            );
-        } else {
-            header = (
-                <h3>
-                    <Link to={'/'}>Gatsby Starter Blog</Link>
-                </h3>
-            );
-        }
         return (
             <div>
-                {header}
+                <h1>
+                    <Link to={'/'}>vollig ohne website</Link>
+                </h1>
                 {children}
             </div>
         );
