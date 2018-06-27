@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import get from 'lodash/get';
 
-import Bio from '../components/Bio';
 import Layout from '../components/layout';
 
 class BlogPostTemplate extends React.Component {
@@ -19,7 +18,6 @@ class BlogPostTemplate extends React.Component {
                 <p>{post.frontmatter.date}</p>
                 <div dangerouslySetInnerHTML={{ __html: post.html }} />
                 <hr />
-                <Bio />
 
                 <ul>
                     {previous && (
