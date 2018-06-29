@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    background: #f8f9f6;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+a {
+    color: inherit;
+}
+
+h1 {
+    font-size: inherit;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+* {
+    box-sizing: border-box;
+}

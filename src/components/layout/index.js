@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
 
+import './base.css';
 import s from './style.module.css';
 
 class TemplateContainer extends React.Component {
@@ -64,7 +65,8 @@ class Template extends React.Component {
                         <Link to={'/'}>home</Link>
                     </li>
                 </ul>
-                <div className={s.canvasContainer}>{children}</div>
+                <div className={s.canvas} />
+                <div className={s.content}>{children}</div>
             </main>
         );
     }
