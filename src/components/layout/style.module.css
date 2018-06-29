@@ -52,6 +52,7 @@
     font-size: inherit;
     padding: 0;
     text-decoration: inherit;
+    color: inherit;
 }
 
 .projectLink:focus {

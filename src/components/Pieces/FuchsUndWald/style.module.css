@@ -1,19 +1,17 @@
 .container {
-    word-break: break-all;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     font-size: 1.3em;
 }
 
-.tree {
+.forest {
     color: green;
-    visibility: hidden;
     animation-name: appear;
-    animation-duration: 0;
+    animation-duration: .3s;
     animation-fill-mode: forwards;
+    position: absolute;
+    width: 100%;
     opacity: 0;
-}
-
-.tree_grown {
-    visibility: visible;
 }
 
 @keyframes appear {
