@@ -4,17 +4,48 @@
     position: relative;
 }
 
-.projects {
-    padding: 1rem;
-    margin: 0;
-    list-style: none;
-    background: white;
+.sidebar {
     position: fixed;
     width: 15rem;
+    top: 1rem;
+    bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.projects, .description {
+    background: white;
+    padding: 1rem;
+}
+
+.projects {
+    overflow: scroll;
+    list-style: none;
+    flex: 1 1 auto;
+    margin: 0;
+}
+
+.description {
+    flex: 0 1 auto;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+
+.description:hover {
+    text-decoration: underline;
 }
 
 .project {
     margin-bottom: .5rem;
+}
+
+.projectLink {
+    background: transparent;
+    font-family: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    padding: 0;
 }
 
 .content {

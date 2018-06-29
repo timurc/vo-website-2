@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
+import { find } from 'lodash';
 
 import './base.css';
 import s from './style.module.css';
 
 class TemplateContainer extends React.Component {
     render() {
-        const { children } = this.props;
+        const { children, location } = this.props;
 
         return (
             <StaticQuery
@@ -31,7 +32,11 @@ class TemplateContainer extends React.Component {
                         }
                     }
                 `}
-                render={data => <Template data={data}>{children}</Template>}
+                render={data => (
+                    <Template data={data} location={location}>
+                        {children}
+                    </Template>
+                )}
             />
         );
     }
@@ -40,7 +45,10 @@ class TemplateContainer extends React.Component {
 class Template extends React.Component {
     constructor(props) {
         super(props);
-        console.log('constructing...');
+        const { location } = this.props;
+        this.state = {
+            activeProject: location.pathname,
+        };
     }
     componentDidMount() {
         console.log('componentDidMount');
@@ -48,23 +56,52 @@ class Template extends React.Component {
     componentWillUnmount() {
         console.log('componentWillUnmount');
     }
+    activateProject(project) {
+        this.setState({ activeProject: project });
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname !== prevProps.location.pathname) {
+            this.setState({ activeProject: this.props.location.pathname });
+        }
+    }
     render() {
         const { children, data } = this.props;
         const pages = get(data, 'allMarkdownRemark.edges');
-        console.log(pages);
+        const activeProject = find(pages, page => {
+            return get(page, 'node.fields.slug') === this.state.activeProject;
+        });
+
+        console.log(activeProject);
 
         return (
             <main className={s.container}>
-                <ul className={s.projects}>
-                    {pages.map(project => (
-                        <li className={s.project} key={project.node.fields.slug}>
-                            <Link to={project.node.fields.slug}>{project.node.frontmatter.title}</Link>
+                <aside className={s.sidebar}>
+                    <ul className={s.projects}>
+                        {pages.map(project => (
+                            <li className={s.project} key={project.node.fields.slug}>
+                                <button
+                                    onClick={() => {
+                                        this.activateProject(project.node.fields.slug);
+                                    }}
+                                    className={s.projectLink}
+                                >
+                                    {project.node.frontmatter.title}
+                                </button>
+                            </li>
+                        ))}
+                        <li>
+                            <Link to={'/'}>home</Link>
                         </li>
-                    ))}
-                    <li>
-                        <Link to={'/'}>home</Link>
-                    </li>
-                </ul>
+                    </ul>
+
+                    {activeProject && (
+                        <Link to={this.state.activeProject} className={s.description}>
+                            <h2>{activeProject.node.frontmatter.title}</h2>
+                            <p>{activeProject.node.frontmatter.year}</p>
+                            <p>{activeProject.node.frontmatter.description}</p>
+                        </Link>
+                    )}
+                </aside>
                 <div className={s.canvas} />
                 <div className={s.content}>{children}</div>
             </main>
