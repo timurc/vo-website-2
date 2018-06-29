@@ -1,0 +1,22 @@
+.boa {
+    position: absolute;
+    background: url(./boa.png);
+    background-size: 100%;
+    width: 10%;
+    left: 5%;
+    top: -500%;
+    bottom: -500vh;
+    animation-name: pan;
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pan {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-500vh);
+    }
+}

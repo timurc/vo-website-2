@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
 import { find } from 'lodash';
 import classNames from 'classnames';
+import Pieces from './../Pieces';
 
 import './base.css';
 import s from './style.module.css';
@@ -79,8 +80,6 @@ class Template extends React.Component {
             return get(page, 'node.fields.slug') === this.state.activeProject;
         });
 
-        console.log(activeProject);
-
         return (
             <main className={s.container}>
                 <aside className={s.sidebar}>
@@ -115,7 +114,13 @@ class Template extends React.Component {
                         </Link>
                     )}
                 </aside>
-                <div className={s.canvas} />
+                <div className={s.canvas}>
+                    {Array.from(this.state.activeProjects).map(activeProject => {
+                        if (Pieces[activeProject]) {
+                            return <React.Fragment key={activeProject}>{Pieces[activeProject]}</React.Fragment>;
+                        }
+                    })}
+                </div>
                 <div className={s.content}>{children}</div>
             </main>
         );
