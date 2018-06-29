@@ -1,0 +1,27 @@
+.container {
+    word-break: break-all;
+    font-size: 1.3em;
+}
+
+.tree {
+    color: green;
+    visibility: hidden;
+    animation-name: appear;
+    animation-duration: 0;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.tree_grown {
+    visibility: visible;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

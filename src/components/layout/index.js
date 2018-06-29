@@ -116,8 +116,13 @@ class Template extends React.Component {
                 </aside>
                 <div className={s.canvas}>
                     {Array.from(this.state.activeProjects).map(activeProject => {
+                        const Piece = Pieces[activeProject];
                         if (Pieces[activeProject]) {
-                            return <React.Fragment key={activeProject}>{Pieces[activeProject]}</React.Fragment>;
+                            return (
+                                <React.Fragment key={activeProject}>
+                                    <Piece />
+                                </React.Fragment>
+                            );
                         }
                     })}
                 </div>
