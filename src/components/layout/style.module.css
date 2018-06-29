@@ -19,4 +19,15 @@
 
 .content {
     margin-left: 16rem;
+    position: relative;
+    z-index: 1;
+}
+
+.canvas {
+    position: fixed;
+    top: 1rem;
+    left: 17rem;
+    right: 1rem;
+    bottom: 1rem;
+    background: white;
 }
