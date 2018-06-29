@@ -1,14 +1,28 @@
-.header {
-    animation-name: backgroundTransition ;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+body {
+    margin: 0;
+    background: #f8f9f6;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-@keyframes backgroundTransition {
-    from {
-        background: red;
-    }
-    to {
-        background: transparent;
-    }
+a {
+    color: inherit;
+}
+
+
+.projects {
+    padding: 1rem;
+    margin: 0;
+    list-style: none;
+    background: white;
+}
+
+.project {
+    margin-bottom: .5rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    padding: 1rem;
+    grid-gap: 1rem;
 }

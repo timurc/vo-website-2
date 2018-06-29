@@ -1,6 +1,40 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import get from 'lodash/get';
+import { StaticQuery, graphql } from 'gatsby';
+
 import s from './style.module.css';
+
+class TemplateContainer extends React.Component {
+    render() {
+        const { children } = this.props;
+
+        return (
+            <StaticQuery
+                query={graphql`
+                    query IndexQueryFoo {
+                        allMarkdownRemark(sort: { fields: [frontmatter___order], order: DESC }) {
+                            edges {
+                                node {
+                                    fields {
+                                        slug
+                                    }
+                                    frontmatter {
+                                        title
+                                        year
+                                        order
+                                        description
+                                    }
+                                }
+                            }
+                        }
+                    }
+                `}
+                render={data => <Template data={data}>{children}</Template>}
+            />
+        );
+    }
+}
 
 class Template extends React.Component {
     constructor(props) {
@@ -14,18 +48,26 @@ class Template extends React.Component {
         console.log('componentWillUnmount');
     }
     render() {
-        const { location, children } = this.props;
-        const rootPath = `${__PATH_PREFIX__}/`;
+        const { children, data } = this.props;
+        const pages = get(data, 'allMarkdownRemark.edges');
+        console.log(pages);
 
         return (
-            <div>
-                <h1 className={s.header}>
-                    <Link to={'/'}>vollig ohne website</Link>
-                </h1>
-                {children}
-            </div>
+            <main className={s.container}>
+                <ul className={s.projects}>
+                    {pages.map(project => (
+                        <li className={s.project} key={project.node.fields.slug}>
+                            <Link to={project.node.fields.slug}>{project.node.frontmatter.title}</Link>
+                        </li>
+                    ))}
+                    <li>
+                        <Link to={'/'}>home</Link>
+                    </li>
+                </ul>
+                <div className={s.canvasContainer}>{children}</div>
+            </main>
         );
     }
 }
 
-export default Template;
+export default TemplateContainer;
