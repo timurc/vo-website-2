@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
 import { find } from 'lodash';
+import classNames from 'classnames';
 
 import './base.css';
 import s from './style.module.css';
@@ -48,6 +49,7 @@ class Template extends React.Component {
         const { location } = this.props;
         this.state = {
             activeProject: location.pathname,
+            activeProjects: new Set(),
         };
     }
     componentDidMount() {
@@ -57,7 +59,13 @@ class Template extends React.Component {
         console.log('componentWillUnmount');
     }
     activateProject(project) {
-        this.setState({ activeProject: project });
+        const newActiveProjects = new Set(this.state.activeProjects);
+        if (this.state.activeProjects.has(project)) {
+            newActiveProjects.delete(project);
+        } else {
+            newActiveProjects.add(project);
+        }
+        this.setState({ activeProject: project, activeProjects: newActiveProjects });
     }
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -78,7 +86,12 @@ class Template extends React.Component {
                 <aside className={s.sidebar}>
                     <ul className={s.projects}>
                         {pages.map(project => (
-                            <li className={s.project} key={project.node.fields.slug}>
+                            <li
+                                className={classNames(s.project, {
+                                    [s.project_isActive]: this.state.activeProjects.has(project.node.fields.slug),
+                                })}
+                                key={project.node.fields.slug}
+                            >
                                 <button
                                     onClick={() => {
                                         this.activateProject(project.node.fields.slug);

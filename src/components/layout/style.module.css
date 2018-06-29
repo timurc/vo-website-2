@@ -37,6 +37,11 @@
 
 .project {
     margin-bottom: .5rem;
+    text-decoration: line-through;
+}
+
+.project_isActive {
+    text-decoration: none;
 }
 
 .projectLink {
@@ -46,6 +51,12 @@
     cursor: pointer;
     font-size: inherit;
     padding: 0;
+    text-decoration: inherit;
+}
+
+.projectLink:focus {
+    outline: none;
+    background: #f8f9f6;
 }
 
 .content {

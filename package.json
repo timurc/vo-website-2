@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "author": "Timur Celikel <timur@volligohne.de>",
   "dependencies": {
+    "classnames": "^2.2.6",
     "gatsby": "next",
     "gatsby-plugin-feed": "next",
     "gatsby-plugin-google-analytics": "next",
