@@ -1,6 +1,6 @@
 module.exports = {
     siteMetadata: {
-        title: 'Vollig Ohne',
+        title: 'völlig ohne',
         description: 'Labor für Gestaltung in Berlin',
         siteUrl: 'https://volligohne.de/',
     },
