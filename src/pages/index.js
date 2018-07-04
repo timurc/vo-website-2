@@ -1,30 +1,11 @@
 import React from 'react';
-import { Link } from 'gatsby';
-import get from 'lodash/get';
-import Helmet from 'react-helmet';
 
 import Layout from '../components/layout';
 
 class BlogIndex extends React.Component {
     render() {
-        const siteTitle = get(this, 'props.data.site.siteMetadata.title');
-
-        return (
-            <Layout location={this.props.location}>
-                <Helmet title={siteTitle} />
-            </Layout>
-        );
+        return <Layout location={this.props.location} />;
     }
 }
 
 export default BlogIndex;
-
-export const pageQuery = graphql`
-    query IndexQuery {
-        site {
-            siteMetadata {
-                title
-            }
-        }
-    }
-`;

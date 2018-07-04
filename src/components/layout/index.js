@@ -5,6 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import { find } from 'lodash';
 import classNames from 'classnames';
 import Pieces from './../Pieces';
+import Helmet from 'react-helmet';
 
 import './base.css';
 import s from './style.module.css';
@@ -12,11 +13,16 @@ import s from './style.module.css';
 class TemplateContainer extends React.Component {
     render() {
         const { children, location } = this.props;
-
         return (
             <StaticQuery
                 query={graphql`
                     query IndexQueryFoo {
+                        site {
+                            siteMetadata {
+                                title
+                                description
+                            }
+                        }
                         allMarkdownRemark(sort: { fields: [frontmatter___order], order: DESC }) {
                             edges {
                                 node {
@@ -36,6 +42,10 @@ class TemplateContainer extends React.Component {
                 `}
                 render={data => (
                     <Template data={data} location={location}>
+                        <Helmet>
+                            <title>V** {data.site.siteMetadata.title}</title>
+                            <meta name="description" content={data.site.siteMetadata.description} />
+                        </Helmet>
                         {children}
                     </Template>
                 )}

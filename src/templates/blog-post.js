@@ -14,7 +14,13 @@ class BlogPostTemplate extends React.Component {
 
         return (
             <Layout location={this.props.location}>
-                <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+                <Helmet>
+                    <title>{`${post.frontmatter.title} ** ${siteTitle}`}</title>
+                    <meta
+                        name="description"
+                        content={`${siteTitle} ** ${post.frontmatter.title} ** ${post.frontmatter.description}`}
+                    />
+                </Helmet>
                 <div className={s.container}>
                     <div className={s.inner}>
                         <h1>{post.frontmatter.title}</h1>
@@ -61,6 +67,7 @@ export const pageQuery = graphql`
             frontmatter {
                 title
                 year
+                description
             }
         }
     }
