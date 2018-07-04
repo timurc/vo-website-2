@@ -1,6 +1,5 @@
 import React from 'react';
 import s from './style.module.css';
-import classNames from 'classnames';
 
 const CHAR_WIDTH = 13;
 const LINE_HEIGHT = 23;
