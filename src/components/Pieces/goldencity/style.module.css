@@ -1,8 +1,8 @@
 .boa {
     position: absolute;
     background-size: 100%;
-    width: 10%;
-    left: 5%;
+    width: 9rem;
+    left: 3rem;
     top: -500%;
     bottom: -500vh;
     animation-name: pan;
