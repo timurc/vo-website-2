@@ -4,6 +4,7 @@ import FastForwardScience from './FastForwardScience';
 import VolligOhne from './VolligOhne';
 import TransformationDesAlternativen from './TransformationDesAlternativen';
 import TimoBecker from './TimoBecker';
+import StrassenSchilder from './StrassenSchilder';
 
 export default {
     '/goldencity/': goldencity,
@@ -12,4 +13,5 @@ export default {
     '/about/': VolligOhne,
     '/transformationdesalternativen/': TransformationDesAlternativen,
     '/timobecker/': TimoBecker,
+    '/93schilder/': StrassenSchilder,
 };
