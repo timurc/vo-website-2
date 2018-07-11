@@ -19,9 +19,6 @@
     animation-delay: -.5s;
 }
 
-.portrait:nth-child(2) {
-}
-
 @keyframes wobble {
     0% {
         transform: rotate(-5deg);
