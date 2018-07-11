@@ -1,10 +1,9 @@
 import React from 'react';
 import s from './style.module.css';
 
-const CHAR_WIDTH = 13;
-const LINE_HEIGHT = 23;
+const CHAR_WIDTH = 14.5;
+const LINE_HEIGHT = 27;
 
-const COUNT = 3000;
 const TIME_TO_GROW = 5;
 const INTERVAL = 5;
 const GAPS = 5;
