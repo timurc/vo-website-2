@@ -9,8 +9,13 @@
 }
 
 .animation {
+    position: absolute;
     height: 100%;
     width: 100%;
     object-fit: contain;
     object-position: center;
+}
+
+.animationContainer {
+    position: relative;
 }

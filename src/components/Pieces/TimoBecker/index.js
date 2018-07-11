@@ -15,10 +15,13 @@ export default class TimoBecker extends React.Component {
         super(props);
     }
     render() {
-        console.log(s);
         return (
             <div className={s.container}>
-                {animations.map((animation, index) => <img key={index} className={s.animation} src={animation} />)}
+                {animations.map((animation, index) => (
+                    <div className={s.animationContainer} key={index}>
+                        <img className={s.animation} src={animation} />
+                    </div>
+                ))}
             </div>
         );
     }
