@@ -8,5 +8,13 @@
     background: white;
     padding: 1rem;
     max-width: 30rem;
-    margin: 0 0 1rem;
+    margin: 1rem 0 2rem;
+}
+
+.nextPrev {
+    margin: 2rem 0 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
