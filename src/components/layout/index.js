@@ -124,7 +124,9 @@ class Template extends React.Component {
                         </Link>
                     )}
                 </aside>
-                <div className={s.canvas}>
+                <div
+                    className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
+                >
                     {Array.from(this.state.activeProjects).map(activeProject => {
                         const Piece = Pieces[activeProject];
                         if (Pieces[activeProject]) {
