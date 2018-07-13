@@ -5,6 +5,7 @@ import VolligOhne from './VolligOhne';
 import TransformationDesAlternativen from './TransformationDesAlternativen';
 import TimoBecker from './TimoBecker';
 import StrassenSchilder from './StrassenSchilder';
+import { Tiefseemonster } from './Tiefseemonster';
 
 export default {
     '/goldencity/': goldencity,
@@ -14,4 +15,5 @@ export default {
     '/transformationdesalternativen/': TransformationDesAlternativen,
     '/timobecker/': TimoBecker,
     '/93schilder/': StrassenSchilder,
+    '/jona/': Tiefseemonster,
 };
