@@ -7,9 +7,10 @@ import Oberarm from './kiste_oberarm.gif';
 import Unterarm from './kiste_unterarm.gif';
 import Schraube from './schraube.gif';
 
-function Kiste({ raiseArm, className }) {
+function Kiste({ raiseArm, className, containerStyle }) {
     return (
         <div
+            style={containerStyle}
             className={classnames(className, style.container, {
                 [style.container__raise_mobile]: raiseArm !== undefined,
             })}
