@@ -6,6 +6,7 @@ import TransformationDesAlternativen from './TransformationDesAlternativen';
 import TimoBecker from './TimoBecker';
 import StrassenSchilder from './StrassenSchilder';
 import { Tiefseemonster } from './Tiefseemonster';
+import Lieblingsplatte from './Lieblingsplatte';
 
 export default {
     '/goldencity/': goldencity,
@@ -16,4 +17,5 @@ export default {
     '/timobecker/': TimoBecker,
     '/93schilder/': StrassenSchilder,
     '/jona/': Tiefseemonster,
+    '/lieblingsplatte/': Lieblingsplatte,
 };
