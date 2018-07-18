@@ -57,11 +57,18 @@ class TemplateContainer extends React.Component {
 class Template extends React.Component {
     constructor(props) {
         super(props);
-        const { location } = this.props;
+        const {
+            location: { pathname },
+        } = this.props;
+
         this.state = {
-            activeProject: location.pathname,
+            activeProject: pathname,
             activeProjects: new Set(),
         };
+
+        if (pathname !== '/') {
+            this.state.activeProjects.add(pathname);
+        }
     }
     componentDidMount() {
         if (window.layoutState) {
