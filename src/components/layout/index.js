@@ -64,10 +64,12 @@ class Template extends React.Component {
         };
     }
     componentDidMount() {
-        console.log('componentDidMount');
+        if (window.layoutState) {
+            this.setState(window.layoutState);
+        }
     }
     componentWillUnmount() {
-        console.log('componentWillUnmount');
+        window.layoutState = this.state;
     }
     activateProject(project) {
         const newActiveProjects = new Set(this.state.activeProjects);
