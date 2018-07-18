@@ -8,12 +8,13 @@ import s from './style.module.css';
 
 class BlogPostTemplate extends React.Component {
     render() {
+        console.log('blogpost', this.props);
         const post = this.props.data.markdownRemark;
         const siteTitle = get(this.props, 'data.site.siteMetadata.title');
         const { previous, next } = this.props.pageContext;
 
         return (
-            <Layout location={this.props.location}>
+            <>
                 <Helmet>
                     <title>{`${post.frontmatter.title} ** ${siteTitle}`}</title>
                     <meta
@@ -46,7 +47,7 @@ class BlogPostTemplate extends React.Component {
                         </ul>
                     </div>
                 </div>
-            </Layout>
+            </>
         );
     }
 }
