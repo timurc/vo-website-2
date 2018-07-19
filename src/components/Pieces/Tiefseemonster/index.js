@@ -19,11 +19,11 @@ export class Tiefseemonster extends React.Component {
     }
     componentWillUnmount() {
         clearInterval(this.interval);
-        this.containerEl.parentElement.removeEventListener('mousemove', this.setKisteThrottled);
+        window.removeEventListener('mousemove', this.setKisteThrottled);
         this.setKisteThrottled.cancel();
     }
     componentDidMount() {
-        this.containerEl.parentElement.addEventListener('mousemove', this.setKisteThrottled);
+        window.addEventListener('mousemove', this.setKisteThrottled);
     }
     setKisteThrottled = throttle(event => {
         this.setKiste({
@@ -32,7 +32,9 @@ export class Tiefseemonster extends React.Component {
         });
     }, 1000);
     setKiste({ x, y }) {
-        this.setState({ kistePosition: getTransform(x, y) });
+        if (x > 0 && y > 0) {
+            this.setState({ kistePosition: getTransform(x, y) });
+        }
     }
     render() {
         return (
