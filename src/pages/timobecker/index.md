@@ -3,7 +3,7 @@ title: Timo Becker
 what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT, UMSETZUNG
 what2: website, visitenkarte, briefpapier, installation
 date: "2016"
-mainImage: 4800
+mainImage: "4800"
 description: Illustrator in Berlin
 order: 8
 link: 
@@ -13,12 +13,13 @@ images:
  - IMG_8380-Edit
  - IMG_8384
  - IMG_8375-Edit
- - 4792
- - 4800
+ - "4792"
+ - "4800"
+ - "8272"
+ - "8275"
+ - "8293"
+videos: 
  - vimeo: "https://player.vimeo.com/video/194544003?autoplay=1&loop=1&color=fff"
- - 8272
- - 8275
- - 8293
 
 ---
 

@@ -11,8 +11,9 @@ link:
     href: "http://tiefseemonster.de"
 images:
  - 170624_19-33
- - vimeo: "https://player.vimeo.com/video/222976845?autoplay=1&loop=1&color=fff"
  - 170624_19-20
+videos: 
+ - vimeo: "https://player.vimeo.com/video/222976845?autoplay=1&loop=1&color=fff"
  - vimeo: "https://player.vimeo.com/video/222976948?autoplay=1&loop=1&color=fff"
 
 ---

@@ -7,10 +7,10 @@ description: Popup-Galerie
 mainImage: IMG_5157
 order: 11
 images:
- - 254
- - 256
- - 258
- - 259
+ - "254"
+ - "256"
+ - "258"
+ - "259"
 
 ---
 
