@@ -13,7 +13,7 @@
     flex-direction: column;
 }
 
-.projects, .description {
+.projects, .infobox {
     background: white;
     padding: 1rem;
 }
@@ -25,13 +25,13 @@
     margin: 0;
 }
 
-.description {
+.infobox {
     flex: 0 1 auto;
     margin-top: 1rem;
     text-decoration: none;
 }
 
-.description:hover {
+.infobox:hover {
     text-decoration: underline;
 }
 

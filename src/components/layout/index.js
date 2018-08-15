@@ -125,13 +125,7 @@ class Template extends React.Component {
                         </li>
                     </ul>
 
-                    {activeProject && (
-                        <Link to={this.state.activeProject} className={s.description}>
-                            <h2>{activeProject.node.frontmatter.title}</h2>
-                            <p>{activeProject.node.frontmatter.year}</p>
-                            <p>{activeProject.node.frontmatter.description}</p>
-                        </Link>
-                    )}
+                    {activeProject && <InfoBox project={activeProject} link={this.state.activeProject} />}
                 </aside>
                 <div
                     className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
@@ -151,6 +145,16 @@ class Template extends React.Component {
             </main>
         );
     }
+}
+
+function InfoBox({ project, link }) {
+    return (
+        <Link to={link} className={s.infobox}>
+            <h2>{project.node.frontmatter.title}</h2>
+            <p>{project.node.frontmatter.year}</p>
+            <p>{project.node.frontmatter.description}</p>
+        </Link>
+    );
 }
 
 export default TemplateContainer;
