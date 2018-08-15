@@ -13,6 +13,7 @@ import s from './style.module.css';
 class TemplateContainer extends React.Component {
     render() {
         const { children, location } = this.props;
+
         return (
             <StaticQuery
                 query={graphql`
@@ -112,14 +113,20 @@ class Template extends React.Component {
                                 })}
                                 key={project.node.fields.slug}
                             >
-                                <button
-                                    onClick={() => {
-                                        this.activateProject(project.node.fields.slug);
-                                    }}
-                                    className={s.projectLink}
-                                >
-                                    {project.node.frontmatter.title}
-                                </button>
+                                {typeof window === `undefined` ? (
+                                    <a href={project.node.fields.slug} className={s.projectLink}>
+                                        {project.node.frontmatter.title}
+                                    </a>
+                                ) : (
+                                    <button
+                                        onClick={() => {
+                                            this.activateProject(project.node.fields.slug);
+                                        }}
+                                        className={s.projectLink}
+                                    >
+                                        {project.node.frontmatter.title}
+                                    </button>
+                                )}
                             </li>
                         ))}
                         <li>
