@@ -4,9 +4,12 @@
     position: relative;
 }
 
+.sidebar, .infobox {
+    width: 15rem;
+}
+
 .sidebar {
     position: fixed;
-    width: 15rem;
     top: 1rem;
     bottom: 1rem;
     display: flex;
@@ -26,9 +29,10 @@
 }
 
 .infobox {
-    flex: 0 1 auto;
-    margin-top: 1rem;
     text-decoration: none;
+    position: absolute;
+    z-index: 1;
+    top: 0;
 }
 
 .infobox:hover {

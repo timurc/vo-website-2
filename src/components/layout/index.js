@@ -94,11 +94,12 @@ class Template extends React.Component {
         }
     }
     render() {
-        const { children, data } = this.props;
+        const { children, data, location } = this.props;
         const pages = get(data, 'allMarkdownRemark.edges');
         const activeProject = find(pages, page => {
             return get(page, 'node.fields.slug') === this.state.activeProject;
         });
+        const isRoot = location.pathname === '/';
 
         return (
             <main className={s.container}>
@@ -125,8 +126,6 @@ class Template extends React.Component {
                             <Link to={'/'}>home</Link>
                         </li>
                     </ul>
-
-                    {activeProject && <InfoBox project={activeProject} link={this.state.activeProject} />}
                 </aside>
                 <div
                     className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
@@ -141,6 +140,7 @@ class Template extends React.Component {
                             );
                         }
                     })}
+                    {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
                 </div>
                 <div className={s.content}>{children}</div>
             </main>
