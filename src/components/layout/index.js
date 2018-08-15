@@ -111,6 +111,7 @@ class Template extends React.Component {
                             <li
                                 className={classNames(s.project, {
                                     [s.project_isActive]: this.state.activeProjects.has(project.node.fields.slug),
+                                    [s.project_isOpen]: project.node.fields.slug === location.pathname,
                                 })}
                                 key={project.node.fields.slug}
                             >
