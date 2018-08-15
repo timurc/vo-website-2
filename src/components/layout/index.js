@@ -6,6 +6,7 @@ import { find } from 'lodash';
 import classNames from 'classnames';
 import Pieces from './../Pieces';
 import Helmet from 'react-helmet';
+import Logo from './vsternchen.svg';
 
 import './base.css';
 import s from './style.module.css';
@@ -135,6 +136,7 @@ class Template extends React.Component {
                     </ul>
                 </aside>
                 <div
+                    style={{ backgroundImage: `url(${Logo})` }}
                     className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
                 >
                     {Array.from(this.state.activeProjects).map(activeProject => {

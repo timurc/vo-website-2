@@ -83,6 +83,9 @@
     bottom: 1rem;
     background: white;
     overflow: hidden;
+    background-size: 10rem;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .canvas__grayscale {
