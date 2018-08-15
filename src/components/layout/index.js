@@ -82,10 +82,11 @@ class Template extends React.Component {
         const newActiveProjects = new Set(this.state.activeProjects);
         if (this.state.activeProjects.has(project)) {
             newActiveProjects.delete(project);
+            this.setState({ activeProject: undefined, activeProjects: newActiveProjects });
         } else {
             newActiveProjects.add(project);
+            this.setState({ activeProject: project, activeProjects: newActiveProjects });
         }
-        this.setState({ activeProject: project, activeProjects: newActiveProjects });
     }
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
@@ -153,6 +154,7 @@ function InfoBox({ project, link }) {
             <h2>{project.node.frontmatter.title}</h2>
             <p>{project.node.frontmatter.year}</p>
             <p>{project.node.frontmatter.description}</p>
+            <p>Mehr info →</p>
         </Link>
     );
 }

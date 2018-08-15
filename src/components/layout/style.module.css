@@ -35,6 +35,10 @@
     text-decoration: underline;
 }
 
+.infobox p:last-child {
+    margin-bottom: 0;
+}
+
 .project {
     margin-bottom: .5rem;
     text-decoration: line-through;
