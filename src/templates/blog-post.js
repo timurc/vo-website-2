@@ -11,11 +11,7 @@ class BlogPostTemplate extends React.Component {
         const post = this.props.data.markdownRemark;
         const siteTitle = get(this.props, 'data.site.siteMetadata.title');
         const { previous, next } = this.props.pageContext;
-        const mainImage = get(post, 'frontmatter.mainImage.childImageSharp.fluid');
         const images = get(post, 'frontmatter.images');
-        console.log(post.frontmatter.images);
-        console.log(post.frontmatter.mainImage);
-        console.log(images);
 
         return (
             <Layout location={this.props.location}>
@@ -66,7 +62,7 @@ class BlogPostTemplate extends React.Component {
 }
 
 function Img({ src, srcSet, base64, className }) {
-    return <img className={className} src={base64} srcSet={srcSet} />;
+    return <img sizes="calc(100vw - 20rem)" className={className} src={base64} srcSet={srcSet} />;
 }
 
 export default BlogPostTemplate;
@@ -93,16 +89,6 @@ export const pageQuery = graphql`
                             srcSet
                             aspectRatio
                             sizes
-                        }
-                    }
-                }
-                mainImage {
-                    childImageSharp {
-                        fluid(maxWidth: 2000) {
-                            base64
-                            src
-                            srcSet
-                            aspectRatio
                         }
                     }
                 }
