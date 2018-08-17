@@ -11,6 +11,11 @@ class BlogPostTemplate extends React.Component {
         const post = this.props.data.markdownRemark;
         const siteTitle = get(this.props, 'data.site.siteMetadata.title');
         const { previous, next } = this.props.pageContext;
+        const mainImage = get(post, 'frontmatter.mainImage.childImageSharp.fluid');
+        const images = get(post, 'frontmatter.images');
+        console.log(post.frontmatter.images);
+        console.log(post.frontmatter.mainImage);
+        console.log(images);
 
         return (
             <Layout location={this.props.location}>
@@ -45,10 +50,23 @@ class BlogPostTemplate extends React.Component {
                             )}
                         </ul>
                     </div>
+                    {images && (
+                        <ul className={s.images}>
+                            {images.map(image => (
+                                <li key={image.src} className={s.imageContainer}>
+                                    <Img className={s.image} {...image.childImageSharp.fluid} />
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
             </Layout>
         );
     }
+}
+
+function Img({ src, srcSet, base64, className }) {
+    return <img className={className} src={base64} srcSet={srcSet} />;
 }
 
 export default BlogPostTemplate;
@@ -67,6 +85,27 @@ export const pageQuery = graphql`
                 title
                 year
                 description
+                images {
+                    childImageSharp {
+                        fluid(maxWidth: 2000) {
+                            base64
+                            src
+                            srcSet
+                            aspectRatio
+                            sizes
+                        }
+                    }
+                }
+                mainImage {
+                    childImageSharp {
+                        fluid(maxWidth: 2000) {
+                            base64
+                            src
+                            srcSet
+                            aspectRatio
+                        }
+                    }
+                }
             }
         }
     }
