@@ -13,6 +13,7 @@
     animation-name: wobble;
     animation-duration: 2s;
     animation-iteration-count: infinite;
+    border-radius: 50%;
 }
 
 .portrait:nth-child(1) {

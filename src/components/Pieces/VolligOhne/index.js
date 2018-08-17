@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './style.module.css';
 
-import Luise from './luise.png';
-import Timur from './timur.png';
+import Luise from './luise.jpg';
+import Timur from './timur.jpg';
 
 export default function() {
     return (
