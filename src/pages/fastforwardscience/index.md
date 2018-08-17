@@ -4,16 +4,16 @@ what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT
 what2: website, flyer, poster
 year: "2018"
 description: Der Webvideo-Wettbewerb für die Wissenschaft
-mainImage: "240"
+mainImage: "./240.jpg"
 order: 12
 link: 
     title: fastforwardscience.de
     href: "https://fastforwardscience.de"
 images:
- - "238"
- - "248"
- - "249"
- - "253"
+ - "./238.jpg"
+ - "./248.jpg"
+ - "./249.jpg"
+ - "./253.jpg"
 videos: 
  - vimeo: "https://player.vimeo.com/video/268025285?autoplay=1&loop=1&color=fff"
 

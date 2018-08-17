@@ -4,19 +4,19 @@ what: GESTALTUNG & KONZEPT
 what2: logo, buch im buch
 date: "2017"
 description: Veranstaltungsreihe
-mainImage: TDA-291
+mainImage: "./TDA-291.jpg"
 order: 9
 images:
- - TDA-262
- - TDA-263
- - TDA-265
- - TDA-268
- - TDA-276
- - TDA-291
- - TDA-296
- - TDA-307
- - TDA-310
- - TDA-299
+ - "./TDA-262.jpg"
+ - "./TDA-263.jpg"
+ - "./TDA-265.jpg"
+ - "./TDA-268.jpg"
+ - "./TDA-276.jpg"
+ - "./TDA-291.jpg"
+ - "./TDA-296.jpg"
+ - "./TDA-307.jpg"
+ - "./TDA-310.jpg"
+ - "./TDA-299.jpg"
 
 ---
 

@@ -4,14 +4,14 @@ what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT, UMSETZUNG
 what2: logo, website, roll-up
 date: "2017"
 description: Website für Theaterstück
-mainImage: bg
+mainImage: "./bg.jpg"
 order: 9
 link: 
     title: tiefseemonster.de
     href: "http://tiefseemonster.de"
 images:
- - 170624_19-33
- - 170624_19-20
+ - "./170624_19-33.jpg"
+ - "./170624_19-20.jpg"
 videos: 
  - vimeo: "https://player.vimeo.com/video/222976845?autoplay=1&loop=1&color=fff"
  - vimeo: "https://player.vimeo.com/video/222976948?autoplay=1&loop=1&color=fff"

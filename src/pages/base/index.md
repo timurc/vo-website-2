@@ -4,13 +4,13 @@ what: GESTALTUNG
 what2: magazin A4, in zusammenarbeit mit dem illustrator timo becker
 year: "2018"
 description: Popup-Galerie
-mainImage: IMG_5157
+mainImage: "./IMG_5157.jpg"
 order: 11
 images:
- - "254"
- - "256"
- - "258"
- - "259"
+ - "./254.jpg"
+ - "./256.jpg"
+ - "./258.jpg"
+ - "./259.jpg"
 
 ---
 

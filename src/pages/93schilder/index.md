@@ -4,7 +4,7 @@ what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT
 what2: logo, faltblatt, gestaltung website, poster, publikation, flyer
 description: ausstellung zur polnisch deutschen beziehung
 year: "2015"
-mainImage: IMG_4331
+mainImage: "./IMG_4331.jpg"
 order: 1
 ---
 

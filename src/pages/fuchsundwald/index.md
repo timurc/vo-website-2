@@ -4,19 +4,19 @@ what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT
 what2: logo, website, illustrationen, visitenkarte, briefpapier, stempel, t-shirt
 year: "2016"
 description: E-Mail Marketing
-mainImage: IMG_5523
+mainImage: "./IMG_5523.jpg"
 order: 7
 link: 
     title: fuchsundwald.de
     href: "https://fuchsundwald.de"
 images:
-- IMG_5531
-- IMG_5557
-- IMG_5527
-- IMG_5523
-- IMG_5537
-- IMG_5542
-- 11-03-22-25-DSC06097
+- "./IMG_5531.jpg"
+- "./IMG_5557.jpg"
+- "./IMG_5527.jpg"
+- "./IMG_5523.jpg"
+- "./IMG_5537.jpg"
+- "./IMG_5542.jpg"
+- "./11-03-22-25-DSC06097.jpg"
 ---
 
 <a target="_blank" class="blank-link" href="https://twitter.com/volligohne/status/862955898913918977">
