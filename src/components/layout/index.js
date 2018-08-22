@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, push } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
 import { find } from 'lodash';
@@ -85,12 +85,12 @@ class Template extends React.Component {
         }
 
         if (pathname !== '/') {
-            push('/');
         }
     }
     componentDidUpdate(prevProps) {
         if (this.props.location.pathname !== prevProps.location.pathname) {
             this.setState({ activeProject: this.props.location.pathname });
+            navigate('/');
         }
     }
     render() {
