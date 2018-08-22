@@ -47,8 +47,8 @@ class BlogPostTemplate extends React.Component {
                     </div>
                     {images && (
                         <ul className={s.images}>
-                            {images.map(image => (
-                                <li key={image.src} className={s.imageContainer}>
+                            {images.map((image, index) => (
+                                <li key={index} className={s.imageContainer}>
                                     <Img className={s.image} {...image.childImageSharp.fluid} />
                                 </li>
                             ))}
