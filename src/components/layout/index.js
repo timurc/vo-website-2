@@ -88,6 +88,13 @@ class Template extends React.Component {
             navigate('/');
         }
     }
+    componentDidUpdate(prevProps) {
+        if (this.props.location.pathname !== prevProps.location.pathname && this.props.location.pathname !== '/') {
+            this.state.activeProjects.clear();
+            this.state.activeProjects.add(this.props.location.pathname);
+            this.setState({ activeProjects: this.state.activeProjects });
+        }
+    }
     render() {
         const { children, data } = this.props;
         const pathname = fixPathname(this.props.location.pathname);
