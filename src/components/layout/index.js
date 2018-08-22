@@ -59,10 +59,7 @@ class TemplateContainer extends React.Component {
 class Template extends React.Component {
     constructor(props) {
         super(props);
-        const {
-            location: { pathname },
-        } = this.props;
-
+        const pathname = fixPathname(this.props.location.pathname);
         this.state = {
             activeProject: pathname,
             activeProjects: new Set(),
@@ -97,40 +94,27 @@ class Template extends React.Component {
         }
     }
     render() {
-        const { children, data, location } = this.props;
+        const { children, data } = this.props;
+        const pathname = fixPathname(this.props.location.pathname);
+
         const pages = get(data, 'allMarkdownRemark.edges');
         const activeProject = find(pages, page => {
             return get(page, 'node.fields.slug') === this.state.activeProject;
         });
-        const isRoot = location.pathname === '/';
+        const isRoot = pathname === '/';
 
         return (
             <main className={s.container}>
                 <aside className={s.sidebar}>
                     <ul className={s.projects}>
-                        {pages.map(project => (
-                            <li
-                                className={classNames(s.project, {
-                                    [s.project_isActive]: this.state.activeProjects.has(project.node.fields.slug),
-                                    [s.project_isOpen]: project.node.fields.slug === location.pathname,
-                                })}
-                                key={project.node.fields.slug}
-                            >
-                                {typeof window === `undefined` ? (
-                                    <a href={project.node.fields.slug} className={s.projectLink}>
-                                        {project.node.frontmatter.title}
-                                    </a>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            this.activateProject(project.node.fields.slug);
-                                        }}
-                                        className={s.projectLink}
-                                    >
-                                        {project.node.frontmatter.title}
-                                    </button>
-                                )}
-                            </li>
+                        {pages.map((project, index) => (
+                            <Project
+                                key={index}
+                                project={project}
+                                activateProject={project => this.activateProject(project)}
+                                pathname={pathname}
+                                activeProjects={this.state.activeProjects}
+                            />
                         ))}
                         <li>
                             <Link to={'/'}>home</Link>
@@ -157,6 +141,43 @@ class Template extends React.Component {
             </main>
         );
     }
+}
+
+function Project({ project, activateProject, activeProjects, pathname }) {
+    const className = classNames(s.project, {
+        [s.project_isActive]: activeProjects.has(project.node.fields.slug),
+        [s.project_isOpen]: project.node.fields.slug === pathname,
+    });
+
+    // hack around react re-using li element and not updating className when build for server :-/
+    // additionally, checking for the stuff pathname and activeProject does not work on build too
+    if (typeof window === `undefined`) {
+        return (
+            <div className={className}>
+                <a href={project.node.fields.slug} className={s.projectLink}>
+                    {project.node.frontmatter.title}
+                </a>
+            </div>
+        );
+    } else {
+        return (
+            <li className={className}>
+                <button
+                    onClick={() => {
+                        activateProject(project.node.fields.slug);
+                    }}
+                    className={s.projectLink}
+                >
+                    {project.node.frontmatter.title}
+                </button>
+            </li>
+        );
+    }
+}
+
+// stupid hack to what seems to be a gatbsy bug
+function fixPathname(pathname) {
+    return typeof window === `undefined` ? pathname.slice(1, -1) + '/' : pathname;
 }
 
 function InfoBox({ project, link }) {
