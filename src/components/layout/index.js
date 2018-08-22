@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, push } from 'gatsby';
 import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
 import { find } from 'lodash';
@@ -73,13 +73,22 @@ class Template extends React.Component {
         }
     }
     activateProject(project) {
+        const {
+            location: { pathname },
+        } = this.props;
+
         const newActiveProjects = new Set(this.state.activeProjects);
+
         if (this.state.activeProjects.has(project)) {
             newActiveProjects.delete(project);
             this.setState({ activeProject: undefined, activeProjects: newActiveProjects });
         } else {
             newActiveProjects.add(project);
             this.setState({ activeProject: project, activeProjects: newActiveProjects });
+        }
+
+        if (pathname !== '/') {
+            push('/');
         }
     }
     componentDidUpdate(prevProps) {
