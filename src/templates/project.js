@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
                         <p>{post.frontmatter.date}</p>
                         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-                        <ul className={s.nextPrev}>
+                        {/* <ul className={s.nextPrev}>
                             {previous && (
                                 <li>
                                     <Link to={previous.fields.slug} rel="prev">
@@ -43,7 +43,7 @@ class BlogPostTemplate extends React.Component {
                                     </Link>
                                 </li>
                             )}
-                        </ul>
+                        </ul> */}
                     </div>
                     {images && (
                         <ul className={s.images}>
