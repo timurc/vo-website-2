@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import get from 'lodash/get';
 
-import Layout from '../components/layout';
 import s from './style.module.css';
 
 class BlogPostTemplate extends React.Component {
@@ -14,7 +13,7 @@ class BlogPostTemplate extends React.Component {
         const images = get(post, 'frontmatter.images');
 
         return (
-            <Layout location={this.props.location}>
+            <>
                 <Helmet>
                     <title>{`${post.frontmatter.title} ** ${siteTitle}`}</title>
                     <meta
@@ -56,7 +55,7 @@ class BlogPostTemplate extends React.Component {
                         </ul>
                     )}
                 </div>
-            </Layout>
+            </>
         );
     }
 }
