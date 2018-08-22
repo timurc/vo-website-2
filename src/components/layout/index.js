@@ -85,11 +85,6 @@ class Template extends React.Component {
         }
 
         if (pathname !== '/') {
-        }
-    }
-    componentDidUpdate(prevProps) {
-        if (this.props.location.pathname !== prevProps.location.pathname) {
-            this.setState({ activeProject: this.props.location.pathname });
             navigate('/');
         }
     }
