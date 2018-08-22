@@ -72,14 +72,6 @@ class Template extends React.Component {
             this.state.activeProjects.add(pathname);
         }
     }
-    componentDidMount() {
-        if (window.layoutState) {
-            this.setState(window.layoutState);
-        }
-    }
-    componentWillUnmount() {
-        window.layoutState = this.state;
-    }
     activateProject(project) {
         const newActiveProjects = new Set(this.state.activeProjects);
         if (this.state.activeProjects.has(project)) {
