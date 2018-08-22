@@ -6,11 +6,15 @@
     margin-bottom: 1rem;
 }
 
-.inner {
-    background: white;
-    padding: 1rem;
+.outer {
     max-width: 30rem;
     margin: 1rem 0 2rem;
+    min-height: 80vh;
+}
+
+.inner {
+    padding: 1rem;
+    background: white;
 }
 
 .nextPrev {

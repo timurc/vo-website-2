@@ -22,12 +22,13 @@ class BlogPostTemplate extends React.Component {
                     />
                 </Helmet>
                 <div className={s.container}>
-                    <div className={s.inner}>
-                        <h1>{post.frontmatter.title}</h1>
-                        <p>{post.frontmatter.date}</p>
-                        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                    <div className={s.outer}>
+                        <div className={s.inner}>
+                            <h1>{post.frontmatter.title}</h1>
+                            <p>{post.frontmatter.date}</p>
+                            <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-                        {/* <ul className={s.nextPrev}>
+                            {/* <ul className={s.nextPrev}>
                             {previous && (
                                 <li>
                                     <Link to={previous.fields.slug} rel="prev">
@@ -44,6 +45,7 @@ class BlogPostTemplate extends React.Component {
                                 </li>
                             )}
                         </ul> */}
+                        </div>
                     </div>
                     {images && (
                         <ul className={s.images}>
