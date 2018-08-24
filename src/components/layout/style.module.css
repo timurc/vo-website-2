@@ -57,7 +57,7 @@
    text-transform: uppercase;
 }
 
-.projectLink {
+.projectLink, .homeButton {
     background: transparent;
     font-family: inherit;
     border: none;
@@ -71,9 +71,22 @@
     text-transform: inherit;
 }
 
-.projectLink:focus {
+.homeButton:focus, .projectLink:focus {
     outline: none;
-    background: #f8f9f6;
+    background-color: #f8f9f6;
+}
+
+.homeButton {
+    position: absolute;
+    width: 3rem;
+    height: 1rem;
+    left: 50%;
+    margin-left: -1.5rem;
+    font-size: 0;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    bottom: 1rem;
 }
 
 .content {

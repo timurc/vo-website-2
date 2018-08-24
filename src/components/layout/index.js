@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import Pieces from './../Pieces';
 import Helmet from 'react-helmet';
 import Logo from './vsternchen.svg';
+import Sternchen from './sternchen.svg';
 
 import './base.css';
 import s from './style.module.css';
@@ -95,6 +96,11 @@ class Template extends React.Component {
             this.setState({ activeProjects: this.state.activeProjects });
         }
     }
+    clear() {
+        navigate('/');
+        this.state.activeProjects.clear();
+        this.setState({ activeProject: '/', activeProjects: this.state.activeProjects });
+    }
     render() {
         const { children, data } = this.props;
         const pathname = fixPathname(this.props.location.pathname);
@@ -119,7 +125,17 @@ class Template extends React.Component {
                             />
                         ))}
                         <li>
-                            <Link to={'/'}>home</Link>
+                            {typeof window === `undefined` ? (
+                                <Link to={'/'}>home</Link>
+                            ) : (
+                                <button
+                                    className={s.homeButton}
+                                    style={{ backgroundImage: `url(${Sternchen})` }}
+                                    onClick={() => this.clear()}
+                                >
+                                    home
+                                </button>
+                            )}
                         </li>
                     </ul>
                 </aside>
