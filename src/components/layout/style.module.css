@@ -45,11 +45,6 @@
 
 .project {
     margin-bottom: .5rem;
-    text-decoration: line-through;
-}
-
-.project_isActive {
-    text-decoration: none;
 }
 
 .project_isOpen {
@@ -69,6 +64,20 @@
     text-align: left;
     font-weight: inherit;
     text-transform: inherit;
+}
+
+.projectLink {
+    transition: all .1s;
+    background-image: linear-gradient(to bottom, black 0%, black 100%);
+    background-size: 100% .15em;
+    background-repeat: no-repeat;
+    background-position: 0px 0.55em;
+    display: inline;
+}
+
+.project_isActive .projectLink {
+    background-position: 0px 0.95em;
+    background-size: 100% .1em;
 }
 
 .homeButton:focus, .projectLink:focus {

@@ -180,14 +180,16 @@ function Project({ project, activateProject, activeProjects, pathname }) {
     } else {
         return (
             <li className={className}>
-                <button
+                <div
+                    role="button"
+                    tabIndex="0"
                     onClick={() => {
                         activateProject(project.node.fields.slug);
                     }}
                     className={s.projectLink}
                 >
                     {project.node.frontmatter.title}
-                </button>
+                </div>
             </li>
         );
     }
