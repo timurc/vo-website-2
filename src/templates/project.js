@@ -27,24 +27,6 @@ class BlogPostTemplate extends React.Component {
                             <h1>{post.frontmatter.title}</h1>
                             <p>{post.frontmatter.date}</p>
                             <div dangerouslySetInnerHTML={{ __html: post.html }} />
-
-                            {/* <ul className={s.nextPrev}>
-                            {previous && (
-                                <li>
-                                    <Link to={previous.fields.slug} rel="prev">
-                                        ← {previous.frontmatter.title}
-                                    </Link>
-                                </li>
-                            )}
-
-                            {next && (
-                                <li>
-                                    <Link to={next.fields.slug} rel="next">
-                                        {next.frontmatter.title} →
-                                    </Link>
-                                </li>
-                            )}
-                        </ul> */}
                         </div>
                     </div>
                     {images && (
@@ -56,6 +38,25 @@ class BlogPostTemplate extends React.Component {
                             ))}
                         </ul>
                     )}
+                    <div className={s.nextPrevOuter}>
+                        <ul className={s.nextPrev}>
+                            {next && (
+                                <li>
+                                    <Link to={next.fields.slug} rel="next">
+                                        ← {next.frontmatter.title}
+                                    </Link>
+                                </li>
+                            )}
+
+                            {previous && (
+                                <li>
+                                    <Link to={previous.fields.slug} rel="prev">
+                                        {previous.frontmatter.title} →
+                                    </Link>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
                 </div>
             </>
         );
