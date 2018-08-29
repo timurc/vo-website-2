@@ -17,6 +17,13 @@ export default {
             this.interval = setInterval(() => {
                 this.setState({ kisteArm: this.state.kisteArm + 1 });
             }, 3000);
+
+            this.setKisteThrottled = throttle(event => {
+                this.setKiste({
+                    y: event.pageY - this.containerEl.parentElement.offsetTop,
+                    x: event.pageX - this.containerEl.parentElement.offsetLeft,
+                });
+            }, 1000);
         }
         componentWillUnmount() {
             clearInterval(this.interval);
@@ -26,12 +33,6 @@ export default {
         componentDidMount() {
             window.addEventListener('mousemove', this.setKisteThrottled);
         }
-        setKisteThrottled = throttle(event => {
-            this.setKiste({
-                y: event.pageY - this.containerEl.parentElement.offsetTop,
-                x: event.pageX - this.containerEl.parentElement.offsetLeft,
-            });
-        }, 1000);
         setKiste({ x, y }) {
             if (x > 0 && y > 0) {
                 this.setState({ kistePosition: getTransform(x, y) });
