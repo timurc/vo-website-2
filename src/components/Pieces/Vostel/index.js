@@ -2,6 +2,8 @@ import React from 'react';
 import { throttle } from 'lodash';
 import s from './style.module.css';
 
+const MAX_HEART_COUNT = 200;
+
 export default {
     component: class Vostel extends React.Component {
         constructor(props) {
@@ -34,9 +36,13 @@ export default {
             return (
                 <div className={s.container} ref={c => (this.containerEl = c)}>
                     {this.state.hearts.map((heart, index) => (
-                        <div key={index} className={s.heart} style={{ top: `${heart.y}px`, left: `${heart.x}px` }}>
-                            <div className={s.heartInner} />
-                        </div>
+                        <React.Fragment key={index}>
+                            {MAX_HEART_COUNT - this.state.hearts.length + index > 0 ? (
+                                <div className={s.heart} style={{ top: `${heart.y}px`, left: `${heart.x}px` }}>
+                                    <div className={s.heartInner} />
+                                </div>
+                            ) : null}
+                        </React.Fragment>
                     ))}
                 </div>
             );
