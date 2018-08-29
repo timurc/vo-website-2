@@ -5,7 +5,7 @@ import VolligOhne from './VolligOhne';
 import TransformationDesAlternativen from './TransformationDesAlternativen';
 import TimoBecker from './TimoBecker';
 import StrassenSchilder from './StrassenSchilder';
-import { Tiefseemonster } from './Tiefseemonster';
+import Tiefseemonster from './Tiefseemonster';
 import Lieblingsplatte from './Lieblingsplatte';
 
 export default {

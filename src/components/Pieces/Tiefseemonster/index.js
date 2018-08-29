@@ -5,7 +5,7 @@ import s from './style.module.css';
 import Kiste from './Kiste';
 const kisteArmStates = ['', 'L', 'R'];
 
-export class Tiefseemonster extends React.Component {
+export default class Tiefseemonster extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
