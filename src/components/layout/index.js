@@ -110,6 +110,11 @@ class Template extends React.Component {
             return get(page, 'node.fields.slug') === this.state.activeProject;
         });
         const isRoot = pathname === '/';
+        const fullScreenBackground =
+            this.state.activeProject &&
+            this.state.activeProject !== '/' &&
+            Pieces[this.state.activeProject] &&
+            Pieces[this.state.activeProject].fullScreen;
 
         return (
             <main className={s.container}>
@@ -144,8 +149,8 @@ class Template extends React.Component {
                     className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
                 >
                     {Array.from(this.state.activeProjects).map(activeProject => {
-                        const Piece = Pieces[activeProject];
-                        if (Pieces[activeProject]) {
+                        const Piece = Pieces[activeProject] && Pieces[activeProject].component;
+                        if (Piece) {
                             return (
                                 <React.Fragment key={activeProject}>
                                     <Piece />
@@ -155,7 +160,9 @@ class Template extends React.Component {
                     })}
                     {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
                 </div>
-                <div className={s.content}>{children}</div>
+                <div className={classNames(s.content, { [s.content__fullScreen]: fullScreenBackground })}>
+                    {children}
+                </div>
             </main>
         );
     }

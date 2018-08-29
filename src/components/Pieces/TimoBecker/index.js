@@ -10,19 +10,21 @@ const animations = [
     require('./animation-6.gif'),
 ];
 
-export default class TimoBecker extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
-        return (
-            <div className={s.container}>
-                {animations.map((animation, index) => (
-                    <div className={s.animationContainer} key={index}>
-                        <img className={s.animation} src={animation} />
-                    </div>
-                ))}
-            </div>
-        );
-    }
-}
+export default {
+    component: class TimoBecker extends React.Component {
+        constructor(props) {
+            super(props);
+        }
+        render() {
+            return (
+                <div className={s.container}>
+                    {animations.map((animation, index) => (
+                        <div className={s.animationContainer} key={index}>
+                            <img className={s.animation} src={animation} />
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+    },
+};

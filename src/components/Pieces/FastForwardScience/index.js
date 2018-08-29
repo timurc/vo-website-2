@@ -2,7 +2,7 @@ import React from 'react';
 import s from './style.module.css';
 import video from './videoloop-small.mp4';
 
-export default function() {
+function FastForward() {
     return (
         <div className={s.container}>
             <video className={s.video} loop autoPlay>
@@ -11,3 +11,5 @@ export default function() {
         </div>
     );
 }
+
+export default (FastForward = { component: FastForward, fullScreen: true });
