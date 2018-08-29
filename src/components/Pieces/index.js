@@ -1,4 +1,4 @@
-import goldencity from './goldencity';
+import Goldencity from './Goldencity';
 import FuchsUndWald from './FuchsUndWald';
 import FastForwardScience from './FastForwardScience';
 import VolligOhne from './VolligOhne';
@@ -9,7 +9,7 @@ import Tiefseemonster from './Tiefseemonster';
 import Lieblingsplatte from './Lieblingsplatte';
 
 export default {
-    '/goldencity/': goldencity,
+    '/goldencity/': Goldencity,
     '/fastforwardscience/': FastForwardScience,
     '/fuchsundwald/': FuchsUndWald,
     '/about/': VolligOhne,
