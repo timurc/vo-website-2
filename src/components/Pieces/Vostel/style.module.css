@@ -2,6 +2,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
+    cursor: url("./heart.svg") 20 20, auto;
 }
 
 .heart {
