@@ -39,7 +39,7 @@ Es entsteht spontan eine persönliche Verbindung.
 
 Auf der Website wird diese Situation digital abgebildet. Da Timo nicht jederzeit mit einer Illustration antworten kann, haben wir ihn gebeten, für alle dreihundertsechzig Kombinationen Zeichnungen anzufertigen. Diese werden dann abhängig von der vom Benutzer ausgeführten Verbindung angezeigt. Dadurch, dass es sehr schwer ist, alle dreihundertsechzig Kombinationen zu erraten, entsteht trotz der Wiederholbarkeit eine persönliche Verbindung. Es macht süchtig, sich auf die Suche nach allen Kombinationen zu begeben.
 
-![animation](/projekte/timobecker/animated.gif)
+![animation](./animated.gif)
 
 Auf der [Eröffnungsfeier](/neuigkeiten/timo-launch/) zu der Website haben wir diesen Automatismus wiederum zu einer Installation verarbeitet. Auf einer großen Projektionsfläche konnten die Gäste Knöpfe drücken, um dann gedruckte Versionen der Illustrationen mit nach Haus zu nehmen.
 
