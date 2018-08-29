@@ -1,0 +1,58 @@
+.container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.heart {
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    margin: -1rem;
+    animation-duration: .1s;
+    animation-name: fadeIn;
+    animation-timing-function: ease-in-out;
+}
+
+.heartInner {
+    height: 100%;
+    width: 100%;
+    background-image: url("./heart.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation-duration: 1s;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1)
+    }
+    5% {
+        transform: scale(1.05)
+    }
+    15% {
+        transform: scale(1)
+    }
+    20% {
+        transform: scale(1.1)
+    }
+    70% {
+        transform: scale(1)
+    }
+    0% {
+        transform: scale(1)
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

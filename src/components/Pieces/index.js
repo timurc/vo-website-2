@@ -7,6 +7,7 @@ import TimoBecker from './TimoBecker';
 import StrassenSchilder from './StrassenSchilder';
 import Tiefseemonster from './Tiefseemonster';
 import Lieblingsplatte from './Lieblingsplatte';
+import Vostel from './Vostel';
 
 export default {
     '/goldencity/': Goldencity,
@@ -18,4 +19,5 @@ export default {
     '/93schilder/': StrassenSchilder,
     '/jona/': Tiefseemonster,
     '/lieblingsplatte/': Lieblingsplatte,
+    '/vostel/': Vostel,
 };
