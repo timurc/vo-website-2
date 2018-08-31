@@ -10,7 +10,7 @@ import Logo from './vsternchen.svg';
 import Sternchen from './sternchen.svg';
 
 import './base.css';
-import s from './style.module.css';
+import s from './style.module.less';
 
 class TemplateContainer extends React.Component {
     render() {

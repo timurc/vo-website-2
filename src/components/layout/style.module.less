@@ -1,19 +1,33 @@
+@import '../../vars';
+
+@boxWidth: 15rem;
+
 .container {
     padding: 1rem;
     height: 100vh;
     position: relative;
 }
 
-.sidebar, .infobox {
-    width: 15rem;
-}
-
 .sidebar {
     position: fixed;
     top: 1rem;
-    bottom: 1rem;
+    left: 1rem;
     display: flex;
     flex-direction: column;
+    z-index: 1;
+
+    @media (min-width: @breakPointMobile) {
+        bottom: 1rem;
+        width: @boxWidth;
+    }
+
+    @media (max-width: @breakPointMobile) {
+        right: 1rem;
+        overflow: scroll;
+        background: white;
+        white-space: nowrap;
+        height: 5rem;
+    }
 }
 
 .projects, .infobox {
@@ -29,22 +43,31 @@
 }
 
 .infobox {
+    width: @boxWidth;
     text-decoration: none;
     position: absolute;
     z-index: 1;
     top: 0;
-}
 
-.infobox:hover {
-    text-decoration: underline;
-}
+    &:hover {
+        text-decoration: underline;
+    }
 
-.infobox p:last-child {
-    margin-bottom: 0;
+    p:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .project {
     margin-bottom: .5rem;
+
+    @media (max-width: @breakPointMobile) {
+        display: inline;
+
+        &:after {
+            content: ' ';
+        }
+    }
 }
 
 .project_isOpen {
@@ -99,9 +122,16 @@
 }
 
 .content {
-    margin-left: 16rem;
     position: relative;
     z-index: 1;
+
+    @media (min-width: @breakPointMobile) {
+        margin-left: @boxWidth + 1rem;
+    }
+
+    @media (max-width: @breakPointMobile) {
+        top: 6rem;
+    }
 }
 
 .content__fullScreen {
@@ -111,13 +141,21 @@
 .canvas {
     position: fixed;
     top: 1rem;
-    left: 17rem;
+    left: 1rem;
     right: 1rem;
     bottom: 1rem;
     overflow: hidden;
     background-size: 10rem;
     background-position: center;
     background-repeat: no-repeat;
+
+    @media (min-width: @breakPointMobile) {
+        margin-left: @boxWidth + 2rem;
+    }
+
+    @media (max-width: @breakPointMobile) {
+        top: 7rem;
+    }
 }
 
 .canvas__grayscale {
