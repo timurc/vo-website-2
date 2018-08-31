@@ -1,11 +1,19 @@
-.container {
+.sea {
     position: absolute;
-    height: 100%;
+    background: #0883aa;
     width: 100%;
+    height: 25vh;
+    bottom: 0;
 }
 
-.kiste {
+.sea:before {
+    content: '';
+    background-image: url('./sea.gif');
+    background-size: 100%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
     position: absolute;
-    pointer-events: none;
-    transition: all 1s ease;
+    bottom: 100%;
+    width: 100%;
+    height: 100%;
 }
