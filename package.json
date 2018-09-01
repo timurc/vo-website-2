@@ -39,6 +39,7 @@
   "homepage": "https://volligohne.de",
   "scripts": {
     "start": "gatsby develop",
+    "dev-m": "gatsby develop -H 192.168.178.20 -p 8000",
     "serve": "gatsby serve",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
