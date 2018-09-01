@@ -129,20 +129,20 @@ class Template extends React.Component {
                                 activeProjects={this.state.activeProjects}
                             />
                         ))}
-                        <li>
-                            {typeof window === `undefined` ? (
-                                <Link to={'/'}>home</Link>
-                            ) : (
-                                <button
-                                    className={s.homeButton}
-                                    style={{ backgroundImage: `url(${Sternchen})` }}
-                                    onClick={() => this.clear()}
-                                >
-                                    home
-                                </button>
-                            )}
-                        </li>
                     </ul>
+                    <>
+                        {typeof window === `undefined` ? (
+                            <Link to={'/'}>home</Link>
+                        ) : (
+                            <button
+                                className={s.homeButton}
+                                style={{ backgroundImage: `url(${Sternchen})` }}
+                                onClick={() => this.clear()}
+                            >
+                                home
+                            </button>
+                        )}
+                    </>
                 </aside>
                 <div
                     style={{ backgroundImage: `url(${Logo})` }}
