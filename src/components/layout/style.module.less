@@ -4,7 +4,6 @@
 
 .container {
     padding: 1rem;
-    height: 100vh;
     position: relative;
 }
 
@@ -22,10 +21,13 @@
     }
 
     @media (max-width: @breakPointMobile) {
-        right: 1rem;
+        right: 0;
+        top: 0;
+        left: 0;
         background: white;
         white-space: nowrap;
         height: 5rem;
+        padding-top: 2rem;
     }
 }
 
@@ -40,6 +42,10 @@
     list-style: none;
     flex: 1 1 auto;
     margin: 0;
+
+    @media (max-width: @breakPointMobile) {
+        padding-bottom: 0;
+    }
 }
 
 .infobox {
@@ -59,7 +65,9 @@
 }
 
 .project {
-    margin-bottom: .5rem;
+    @media (min-width: @breakPointMobile) {
+        margin-bottom: .5rem;
+    }
 
     @media (max-width: @breakPointMobile) {
         display: inline;
@@ -118,7 +126,14 @@
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: contain;
-    bottom: 1rem;
+
+    @media (min-width: @breakPointMobile) {
+        bottom: 1rem;
+    }
+
+    @media (max-width: @breakPointMobile) {
+        top: 1rem;
+    }
 }
 
 .content {
