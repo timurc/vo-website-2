@@ -1,15 +1,24 @@
+@import '../vars';
+
 .container {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     margin-bottom: 1rem;
+
+    img {
+        max-width: 100%;
+    }
 }
 
 .outer {
     max-width: 30rem;
-    margin: 0 0 2rem;
-    min-height: 80vh;
+    margin: 0 0 1rem;
+
+    @media (min-width: @breakPointMobile) {
+        min-height: 80vh;
+    }
 }
 
 .inner {
@@ -45,12 +54,18 @@
     padding: 1rem 1rem 0;
     margin: 0;
     background: white;
-}
 
-.imageContainer:last-child {
-    padding-bottom: 1rem;
+    &:last-child {
+        padding-bottom: 1rem;
+    }
+
+    @media (max-width: @breakPointMobile) {
+        padding: 1rem 0 0;
+        margin: 0 -1rem;
+    }
 }
 
 .image {
     width: 100%;
+    display: block;
 }
