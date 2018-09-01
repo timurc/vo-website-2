@@ -13,7 +13,7 @@
     left: 1rem;
     display: flex;
     flex-direction: column;
-    z-index: 1;
+    z-index: 2;
 
     @media (min-width: @breakPointMobile) {
         bottom: 1rem;
@@ -24,16 +24,28 @@
         right: 0;
         top: 0;
         left: 0;
-        background: white;
         white-space: nowrap;
-        height: 5rem;
+        height: 6rem;
         padding-top: 2rem;
+
+        &:before {
+            content: '';
+            position: absolute;
+            background: white;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 1rem;
+        }
     }
 }
 
 .projects, .infobox {
-    background: white;
     padding: 1rem;
+
+    @media (min-width: @breakPointMobile) {
+        background: white;
+    }
 }
 
 .projects {
@@ -44,7 +56,11 @@
     margin: 0;
 
     @media (max-width: @breakPointMobile) {
-        padding-bottom: 0;
+        display: flex;
+        position: absolute;
+        top: 0;
+        padding-top: 3rem;
+        width: 100%;
     }
 }
 
@@ -54,6 +70,10 @@
     position: absolute;
     z-index: 1;
     top: 0;
+
+    @media (max-width: @breakPointMobile) {
+        display: none;
+    }
 
     &:hover {
         text-decoration: underline;
@@ -65,16 +85,15 @@
 }
 
 .project {
+    position: relative;
+
     @media (min-width: @breakPointMobile) {
         margin-bottom: .5rem;
     }
 
     @media (max-width: @breakPointMobile) {
-        display: inline;
-
-        &:after {
-            content: ' ';
-        }
+        display: inline-block;
+        margin-right: .5rem;
     }
 }
 
@@ -111,6 +130,17 @@
     background-size: 100% .1em;
 }
 
+.projectMoreLink {
+    background: white;
+    padding: .5rem;
+    margin-left: -.5rem;
+    display: block;
+
+    @media (min-width: @breakPointMobile) {
+        display: none;
+    }
+}
+
 .homeButton:focus, .projectLink:focus {
     outline: none;
     background-color: #f3f3f3;
@@ -145,12 +175,15 @@
     }
 
     @media (max-width: @breakPointMobile) {
-        top: 6rem;
+        top: 5rem;
+        margin-top: 60vh;
     }
 }
 
 .content__fullScreen {
-    margin-top: 1rem;
+    @media (min-width: @breakPointMobile) {
+        margin-top: 1rem;
+    }
 }
 
 .canvas {

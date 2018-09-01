@@ -127,6 +127,7 @@ class Template extends React.Component {
                                 activateProject={project => this.activateProject(project)}
                                 pathname={pathname}
                                 activeProjects={this.state.activeProjects}
+                                openInfoBox={this.state.activeProject === project.node.fields.slug}
                             />
                         ))}
                     </ul>
@@ -168,10 +169,11 @@ class Template extends React.Component {
     }
 }
 
-function Project({ project, activateProject, activeProjects, pathname }) {
+function Project({ project, activateProject, activeProjects, pathname, openInfoBox }) {
+    const isOpen = project.node.fields.slug === pathname;
     const className = classNames(s.project, {
         [s.project_isActive]: activeProjects.has(project.node.fields.slug),
-        [s.project_isOpen]: project.node.fields.slug === pathname,
+        [s.project_isOpen]: isOpen,
     });
 
     // hack around react re-using li element and not updating className when build for server :-/
@@ -197,6 +199,12 @@ function Project({ project, activateProject, activeProjects, pathname }) {
                 >
                     {project.node.frontmatter.title}
                 </div>
+                {openInfoBox &&
+                    !isOpen && (
+                        <Link className={s.projectMoreLink} to={project.node.fields.slug}>
+                            Mehr info
+                        </Link>
+                    )}
             </li>
         );
     }
