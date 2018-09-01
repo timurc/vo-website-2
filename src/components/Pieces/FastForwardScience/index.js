@@ -5,7 +5,7 @@ import video from './videoloop-small.mp4';
 function FastForward() {
     return (
         <div className={s.container}>
-            <video className={s.video} loop autoPlay>
+            <video className={s.video} loop autoPlay playsInline>
                 <source src={video} type="video/mp4" />
             </video>
         </div>
