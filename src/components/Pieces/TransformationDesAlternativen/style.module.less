@@ -1,3 +1,5 @@
+@import '../../../vars';
+
 .container {
     position: absolute;
     top: 0;
@@ -10,4 +12,9 @@
     position: absolute;
     width: 12rem;
     margin: -6rem;
+
+    @media (max-width: @breakPointMobile) {
+        width: 6rem;
+        margin: -3rem;
+    }
 }
