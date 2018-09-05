@@ -24,6 +24,7 @@ class TemplateContainer extends React.Component {
                             siteMetadata {
                                 title
                                 description
+                                siteUrl
                             }
                         }
                         allMarkdownRemark(sort: { fields: [frontmatter___order], order: DESC }) {
@@ -48,6 +49,7 @@ class TemplateContainer extends React.Component {
                         <Helmet>
                             <title>V** {data.site.siteMetadata.title}</title>
                             <meta name="description" content={data.site.siteMetadata.description} />
+                            <meta property="og:url" content={data.site.siteMetadata.siteUrl + location.pathname} />
                         </Helmet>
                         {children}
                     </Template>

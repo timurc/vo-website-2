@@ -2,7 +2,7 @@ module.exports = {
     siteMetadata: {
         title: 'völlig ohne',
         description: 'Labor für Gestaltung in Berlin',
-        siteUrl: 'https://volligohne.de/',
+        siteUrl: 'https://volligohne.de',
     },
     // pathPrefix: '/gatsby-starter-blog',
     plugins: [
