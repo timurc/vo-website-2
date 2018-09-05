@@ -22,6 +22,7 @@ class BlogPostTemplate extends React.Component {
                         content={`${siteTitle} ** ${post.frontmatter.title} ** ${post.frontmatter.description}`}
                     />
                     <meta property="og:image" content={mainImageSrc} />
+                    <meta property="og:title" content={`V** ${post.frontmatter.title} ** ${siteTitle}`} />
                 </Helmet>
                 <div className={s.container}>
                     <article className={s.outer}>
