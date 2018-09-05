@@ -63,25 +63,27 @@ class BlogPostTemplate extends React.Component {
                             ))}
                         </ul>
                     )}
-                    <div className={s.nextPrevOuter}>
-                        <ul className={s.nextPrev}>
-                            {next && (
-                                <li>
-                                    <Link to={next.fields.slug} rel="next">
-                                        ← {next.frontmatter.title}
-                                    </Link>
-                                </li>
-                            )}
+                    {(next || previous) && (
+                        <div className={s.nextPrevOuter}>
+                            <ul className={s.nextPrev}>
+                                {next && (
+                                    <li>
+                                        <Link to={next.fields.slug} rel="next">
+                                            ← {next.frontmatter.title}
+                                        </Link>
+                                    </li>
+                                )}
 
-                            {previous && (
-                                <li>
-                                    <Link to={previous.fields.slug} rel="prev">
-                                        {previous.frontmatter.title} →
-                                    </Link>
-                                </li>
-                            )}
-                        </ul>
-                    </div>
+                                {previous && (
+                                    <li>
+                                        <Link to={previous.fields.slug} rel="prev">
+                                            {previous.frontmatter.title} →
+                                        </Link>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
+                    )}
                 </div>
             </>
         );
