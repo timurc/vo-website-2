@@ -20,8 +20,14 @@ exports.createPages = ({ graphql, actions }) => {
                                     }
                                     frontmatter {
                                         title
-                                        year
                                         order
+                                        mainImage {
+                                            childImageSharp {
+                                                resize(width: 700) {
+                                                    src
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -49,8 +55,8 @@ exports.createPages = ({ graphql, actions }) => {
 
                 forEach(postsSplit, posts => {
                     posts.forEach((post, index) => {
-                        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-                        const next = index === 0 ? null : posts[index - 1].node;
+                        const next = index === posts.length - 1 ? null : posts[index + 1].node;
+                        const previous = index === 0 ? null : posts[index - 1].node;
 
                         createPage({
                             path: post.node.fields.slug,

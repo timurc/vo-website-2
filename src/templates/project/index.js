@@ -64,30 +64,30 @@ class BlogPostTemplate extends React.Component {
                         </ul>
                     )}
                     {(next || previous) && (
-                        <div className={s.nextPrevOuter}>
-                            <ul className={s.nextPrev}>
-                                {next && (
-                                    <li>
-                                        <Link to={next.fields.slug} rel="next">
-                                            ← {next.frontmatter.title}
-                                        </Link>
-                                    </li>
-                                )}
-
-                                {previous && (
-                                    <li>
-                                        <Link to={previous.fields.slug} rel="prev">
-                                            {previous.frontmatter.title} →
-                                        </Link>
-                                    </li>
-                                )}
-                            </ul>
+                        <div className={s.nextPrevContainer}>
+                            {previous && <NextPrev page={previous} rel="prev" />}
+                            {next && <NextPrev page={next} rel="next" />}
                         </div>
                     )}
                 </div>
             </>
         );
     }
+}
+
+function NextPrev({ page, rel }) {
+    const img = get(page, 'frontmatter.mainImage.childImageSharp.resize.src');
+
+    return (
+        <Link className={[s.nextPrev, s['nextPrev_' + rel]].join(' ')} to={page.fields.slug} rel={rel}>
+            <h3 className={s.nextPrevHeading}>
+                {rel === 'prev' && <>← </>}
+                {page.frontmatter.title}
+                {rel === 'next' && <> →</>}
+            </h3>
+            {img && <img className={s.nextPrevImage} src={page.frontmatter.mainImage.childImageSharp.resize.src} />}
+        </Link>
+    );
 }
 
 function Img({ src, srcSet, base64, className }) {

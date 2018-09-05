@@ -5,7 +5,7 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
 
     img {
         max-width: 100%;
@@ -30,21 +30,63 @@
     text-align: center;
 }
 
-.nextPrevOuter {
+.nextPrevContainer {
     min-height: 90vh;
     width: 100%;
-    display: flex;
-    align-items: flex-end;
+    margin-top: 1rem;
+    display: grid;
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+    @media (min-width: @breakPointMobile) {
+        grid-template-columns: 1fr repeat(2, minmax(20rem, 2fr)) 1fr;
+        grid-template-rows: 1fr auto;
+    }
+
+    @media (max-width: @breakPointMobile) {
+        grid-template-columns: 1fr;
+        margin-bottom: 1rem;
+    }
 }
 
 .nextPrev {
-    width: 100%;
     background: white;
-    margin: 2rem 0 0;
-    list-style: none;
     padding: 1rem;
+    text-decoration: none;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    @media (min-width: @breakPointMobile) {
+        grid-row-start: 2;
+
+        &_prev {
+            grid-column-start: 2;
+        }
+
+        &_next {
+            grid-column-start: 3;
+            text-align: right;
+        }
+    }
+}
+
+.nextPrevHeading {
+    font-size: inherit;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+}
+
+.nextPrevImage {
+    width: 100%;
+    height: 13rem;
+    object-fit: cover;
+    object-position: center;
 }
 
 .images {
