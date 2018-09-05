@@ -1,5 +1,5 @@
 import React from 'react';
-import s from './style.module.css';
+import s from './style.module.less';
 
 import Luise from './luise.jpg';
 import Timur from './timur.jpg';

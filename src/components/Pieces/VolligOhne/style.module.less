@@ -1,3 +1,5 @@
+@import '../../../vars';
+
 .container {
     position: absolute;
     top: 0;
@@ -6,6 +8,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    @media (max-width: @breakPointMobile) {
+        flex-direction: column;
+    }
 }
 
 .portrait {
