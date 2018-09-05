@@ -13,7 +13,7 @@ export default {
     '/projekte/goldencity/': Goldencity,
     '/projekte/fastforwardscience/': FastForwardScience,
     '/projekte/fuchsundwald/': FuchsUndWald,
-    '/projekte/about/': VolligOhne,
+    '/vo/': VolligOhne,
     '/projekte/transformationdesalternativen/': TransformationDesAlternativen,
     '/projekte/timobecker/': TimoBecker,
     '/projekte/93schilder/': StrassenSchilder,
