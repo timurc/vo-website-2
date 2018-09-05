@@ -50,6 +50,7 @@ class TemplateContainer extends React.Component {
                             <title>V** {data.site.siteMetadata.title}</title>
                             <meta name="description" content={data.site.siteMetadata.description} />
                             <meta property="og:url" content={data.site.siteMetadata.siteUrl + location.pathname} />
+                            <meta property="og:site_name" content={data.site.siteMetadata.title} />
                         </Helmet>
                         {children}
                     </Template>
