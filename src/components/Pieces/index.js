@@ -10,14 +10,14 @@ import Lieblingsplatte from './Lieblingsplatte';
 import Vostel from './Vostel';
 
 export default {
-    '/goldencity/': Goldencity,
-    '/fastforwardscience/': FastForwardScience,
-    '/fuchsundwald/': FuchsUndWald,
-    '/about/': VolligOhne,
-    '/transformationdesalternativen/': TransformationDesAlternativen,
-    '/timobecker/': TimoBecker,
-    '/93schilder/': StrassenSchilder,
-    '/jona/': Tiefseemonster,
-    '/lieblingsplatte/': Lieblingsplatte,
-    '/vostel/': Vostel,
+    '/projekte/goldencity/': Goldencity,
+    '/projekte/fastforwardscience/': FastForwardScience,
+    '/projekte/fuchsundwald/': FuchsUndWald,
+    '/projekte/about/': VolligOhne,
+    '/projekte/transformationdesalternativen/': TransformationDesAlternativen,
+    '/projekte/timobecker/': TimoBecker,
+    '/projekte/93schilder/': StrassenSchilder,
+    '/projekte/jona/': Tiefseemonster,
+    '/projekte/lieblingsplatte/': Lieblingsplatte,
+    '/projekte/vostel/': Vostel,
 };
