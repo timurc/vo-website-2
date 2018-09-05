@@ -52,6 +52,7 @@ class TemplateContainer extends React.Component {
                             <meta property="og:url" content={data.site.siteMetadata.siteUrl + location.pathname} />
                             <meta property="og:site_name" content={data.site.siteMetadata.title} />
                             <meta property="og:image" content="/default-og-image.png" />
+                            <link rel="shortcut icon" type="image/png" href="/favicon.png" />
                         </Helmet>
                         {children}
                     </Template>
