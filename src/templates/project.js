@@ -8,9 +8,10 @@ import s from './style.module.less';
 class BlogPostTemplate extends React.Component {
     render() {
         const post = this.props.data.markdownRemark;
-        const siteTitle = get(this.props, 'data.site.siteMetadata.title');
+        const siteTitle = get(this.props, 'data.site.siteMetadata.siteTitle');
         const { previous, next } = this.props.pageContext;
         const images = get(post, 'frontmatter.images');
+        const mainImageSrc = get(post, 'frontmatter.mainImage.childImageSharp.resize.src');
 
         return (
             <>
@@ -20,6 +21,7 @@ class BlogPostTemplate extends React.Component {
                         name="description"
                         content={`${siteTitle} ** ${post.frontmatter.title} ** ${post.frontmatter.description}`}
                     />
+                    <meta property="og:image" content={mainImageSrc} />
                 </Helmet>
                 <div className={s.container}>
                     <article className={s.outer}>
@@ -107,6 +109,13 @@ export const pageQuery = graphql`
                 description
                 what
                 what2
+                mainImage {
+                    childImageSharp {
+                        resize(width: 2000) {
+                            src
+                        }
+                    }
+                }
                 images {
                     childImageSharp {
                         fluid(maxWidth: 2000) {
