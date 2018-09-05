@@ -8,7 +8,7 @@ import s from './style.module.less';
 class BlogPostTemplate extends React.Component {
     render() {
         const post = this.props.data.markdownRemark;
-        const siteTitle = get(this.props, 'data.site.siteMetadata.siteTitle');
+        const siteTitle = get(this.props, 'data.site.siteMetadata.title');
         const { previous, next } = this.props.pageContext;
         const images = get(post, 'frontmatter.images');
         const mainImageSrc = get(post, 'frontmatter.mainImage.childImageSharp.resize.src');
@@ -16,7 +16,7 @@ class BlogPostTemplate extends React.Component {
         return (
             <>
                 <Helmet>
-                    <title>{`${post.frontmatter.title} ** ${siteTitle}`}</title>
+                    <title>{`V** ${post.frontmatter.title} ** ${siteTitle}`}</title>
                     <meta
                         name="description"
                         content={`${siteTitle} ** ${post.frontmatter.title} ** ${post.frontmatter.description}`}
