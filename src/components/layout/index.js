@@ -201,7 +201,13 @@ function Project({ project, activateProject, activeProjects, pathname, openInfoB
                 </div>
                 {openInfoBox &&
                     !isOpen && (
-                        <Link className={s.projectMoreLink} to={project.node.fields.slug}>
+                        <Link
+                            className={s.projectMoreLink}
+                            onTouchStart={() => {
+                                navigate(project.node.fields.slug);
+                            }}
+                            to={project.node.fields.slug}
+                        >
                             Mehr info →
                         </Link>
                     )}
