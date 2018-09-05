@@ -22,13 +22,35 @@ class BlogPostTemplate extends React.Component {
                     />
                 </Helmet>
                 <div className={s.container}>
-                    <div className={s.outer}>
+                    <article className={s.outer}>
                         <div className={s.inner}>
-                            <h1>{post.frontmatter.title}</h1>
+                            <header className={s.header}>
+                                <h1>{post.frontmatter.title}</h1>
+                                <p>{post.frontmatter.description}</p>
+                                <hr />
+                                {(post.frontmatter.year || post.frontmatter.what) && (
+                                    <p>
+                                        {post.frontmatter.year && (
+                                            <>
+                                                {post.frontmatter.year}
+                                                <br />
+                                            </>
+                                        )}
+                                        {post.frontmatter.what}
+                                    </p>
+                                )}
+                                {post.frontmatter.what2 && (
+                                    <>
+                                        <hr />
+                                        <p>{post.frontmatter.what2}</p>
+                                    </>
+                                )}
+                                <hr />
+                            </header>
                             <p>{post.frontmatter.date}</p>
                             <div dangerouslySetInnerHTML={{ __html: post.html }} />
                         </div>
-                    </div>
+                    </article>
                     {images && (
                         <ul className={s.images}>
                             {images.map((image, index) => (
@@ -83,6 +105,8 @@ export const pageQuery = graphql`
                 title
                 year
                 description
+                what
+                what2
                 images {
                     childImageSharp {
                         fluid(maxWidth: 2000) {
