@@ -17,14 +17,30 @@ export default {
                     y: event.pageY - this.containerEl.parentElement.offsetTop,
                     x: event.pageX - this.containerEl.parentElement.offsetLeft,
                 });
+
+                this.addRandom();
             }, 200);
         }
         componentWillUnmount() {
             window.removeEventListener('mousemove', this.sparkHeartsThrottled);
             this.sparkHeartsThrottled.cancel();
+            clearTimeout(this.timer);
         }
         componentDidMount() {
             window.addEventListener('mousemove', this.sparkHeartsThrottled);
+            this.addRandom();
+        }
+        addRandom() {
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
+            this.timer = setTimeout(() => {
+                this.addRandom();
+                this.sparkHearts({
+                    x: this.containerEl.offsetWidth * Math.random(),
+                    y: this.containerEl.offsetHeight * Math.random(),
+                });
+            }, 2800);
         }
         sparkHearts({ x, y }) {
             if (x > 0 && y > 0) {
