@@ -1,6 +1,7 @@
 const Promise = require('bluebird');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const { forEach } = require('lodash');
 
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
@@ -33,21 +34,33 @@ exports.createPages = ({ graphql, actions }) => {
                     reject(result.errors);
                 }
 
-                // Create project pages.
                 const posts = result.data.allMarkdownRemark.edges;
 
-                posts.forEach((post, index) => {
-                    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-                    const next = index === 0 ? null : posts[index - 1].node;
+                const postsSplit = posts.reduce((postsSplit, post) => {
+                    const parent = post.node.fields.slug.split('/')[1];
 
-                    createPage({
-                        path: post.node.fields.slug,
-                        component: project,
-                        context: {
-                            slug: post.node.fields.slug,
-                            previous,
-                            next,
-                        },
+                    if (!postsSplit[parent]) {
+                        postsSplit[parent] = [];
+                    }
+                    postsSplit[parent].push(post);
+
+                    return postsSplit;
+                }, {});
+
+                forEach(postsSplit, posts => {
+                    posts.forEach((post, index) => {
+                        const previous = index === posts.length - 1 ? null : posts[index + 1].node;
+                        const next = index === 0 ? null : posts[index - 1].node;
+
+                        createPage({
+                            path: post.node.fields.slug,
+                            component: project,
+                            context: {
+                                slug: post.node.fields.slug,
+                                previous,
+                                next,
+                            },
+                        });
                     });
                 });
             })
