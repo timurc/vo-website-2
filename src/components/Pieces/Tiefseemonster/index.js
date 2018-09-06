@@ -11,4 +11,5 @@ export default {
             return <div className={s.sea} />;
         }
     },
+    marginBottom: true,
 };

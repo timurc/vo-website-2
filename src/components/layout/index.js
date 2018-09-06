@@ -98,7 +98,7 @@ class Template extends React.Component {
         if (this.props.location.pathname !== prevProps.location.pathname && this.props.location.pathname !== '/') {
             this.state.activeProjects.clear();
             this.state.activeProjects.add(this.props.location.pathname);
-            this.setState({ activeProjects: this.state.activeProjects });
+            this.setState({ activeProject: this.props.location.pathname, activeProjects: this.state.activeProjects });
         }
     }
     clear() {
@@ -120,6 +120,12 @@ class Template extends React.Component {
             this.state.activeProject !== '/' &&
             Pieces[this.state.activeProject] &&
             Pieces[this.state.activeProject].fullScreen;
+        const marginBottom =
+            fullScreenBackground ||
+            (this.state.activeProject &&
+                this.state.activeProject !== '/' &&
+                Pieces[this.state.activeProject] &&
+                Pieces[this.state.activeProject].marginBottom);
 
         return (
             <main className={s.container}>
@@ -168,7 +174,12 @@ class Template extends React.Component {
                     })}
                     {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
                 </div>
-                <div className={classNames(s.content, { [s.content__fullScreen]: fullScreenBackground })}>
+                <div
+                    className={classNames(s.content, {
+                        [s.content__fullScreen]: fullScreenBackground,
+                        [s.content__marginBottom]: marginBottom,
+                    })}
+                >
                     {children}
                 </div>
             </main>
