@@ -138,7 +138,9 @@ class Template extends React.Component {
                     </ul>
                     <>
                         {typeof window === `undefined` ? (
-                            <Link to={'/'}>home</Link>
+                            <Link className={s.homeButton} style={{ backgroundImage: `url(${Sternchen})` }} to={'/'}>
+                                home
+                            </Link>
                         ) : (
                             <button
                                 className={s.homeButton}
