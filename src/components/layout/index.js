@@ -198,9 +198,14 @@ function Project({ project, activateProject, activeProjects, pathname, openInfoB
             <li className={className}>
                 <div
                     role="button"
-                    tabIndex="0"
+                    tabIndex="1"
                     onClick={() => {
                         activateProject(project.node.fields.slug);
+                    }}
+                    onKeyPress={e => {
+                        if (e.charCode === 13 || e.charCode === 32) {
+                            activateProject(project.node.fields.slug);
+                        }
                     }}
                     className={s.projectLink}
                 >
