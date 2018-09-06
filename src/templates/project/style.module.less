@@ -37,12 +37,12 @@
     display: grid;
     grid-gap: 1rem;
 
-    @media (min-width: @breakPointMobile) {
-        grid-template-columns: 1fr repeat(2, minmax(20rem, 2fr)) 1fr;
+    @media (min-width: @breakPointM) {
+        grid-template-columns: 1fr repeat(2, minmax(0, 20rem)) 1fr;
         grid-template-rows: 1fr auto;
     }
 
-    @media (max-width: @breakPointMobile) {
+    @media (max-width: @breakPointM) {
         grid-template-columns: 1fr;
         margin-bottom: 1rem;
     }
@@ -60,7 +60,7 @@
         text-decoration: underline;
     }
 
-    @media (min-width: @breakPointMobile) {
+    @media (min-width: @breakPointM) {
         grid-row-start: 2;
 
         &_prev {
