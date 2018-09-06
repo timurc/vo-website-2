@@ -24,8 +24,8 @@ class BlogPostTemplate extends React.Component {
                     <meta property="og:image" content={mainImageSrc} />
                     <meta property="og:title" content={`V** ${post.frontmatter.title} ** ${siteTitle}`} />
                 </Helmet>
-                <div className={s.container}>
-                    <article className={s.outer}>
+                <article className={s.container}>
+                    <div className={s.outer}>
                         <div className={s.inner}>
                             <header className={s.header}>
                                 <h1>{post.frontmatter.title}</h1>
@@ -53,7 +53,7 @@ class BlogPostTemplate extends React.Component {
                             <p>{post.frontmatter.date}</p>
                             <div dangerouslySetInnerHTML={{ __html: post.html }} />
                         </div>
-                    </article>
+                    </div>
                     {images && (
                         <ul className={s.images}>
                             {images.map((image, index) => (
@@ -69,7 +69,7 @@ class BlogPostTemplate extends React.Component {
                             {next && <NextPrev page={next} rel="next" />}
                         </div>
                     )}
-                </div>
+                </article>
             </>
         );
     }
