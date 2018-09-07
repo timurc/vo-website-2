@@ -4,11 +4,11 @@ what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT
 what2: website, suchmaske, drucksachen
 date: 2017/2018
 description: Digitale Engagementplattform mit Herz
-mainImage: IMG_5081
 order: 10
 link: 
     title: vostel.de
     href: "https://vostel.de"
+mainImage: "./IMG_5081.jpg"
 images:
  - "./IMG_5105.jpg"
  - "./IMG_5100.jpg"
