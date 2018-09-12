@@ -2,6 +2,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import get from 'lodash/get';
+import Img from '../../components/Img';
 
 import s from './style.module.less';
 
@@ -88,10 +89,6 @@ function NextPrev({ page, rel }) {
             {img && <img className={s.nextPrevImage} src={page.frontmatter.mainImage.childImageSharp.resize.src} />}
         </Link>
     );
-}
-
-function Img({ src, srcSet, base64, className }) {
-    return <img sizes="calc(100vw - 20rem)" className={className} src={base64} srcSet={srcSet} />;
 }
 
 export default BlogPostTemplate;
