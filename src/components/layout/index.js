@@ -12,6 +12,8 @@ import Sternchen from './sternchen.svg';
 import './base.css';
 import s from './style.module.less';
 
+const SIDEBAR_SLUGS = ['/vo', '/projekte'];
+
 class TemplateContainer extends React.Component {
     render() {
         const { children, location } = this.props;
@@ -66,6 +68,9 @@ class Template extends React.Component {
     constructor(props) {
         super(props);
         const pathname = fixPathname(this.props.location.pathname);
+
+        this.sidebarProjects = getSidebarProjects(get(this.props.data, 'allMarkdownRemark.edges'));
+
         this.state = {
             activeProject: pathname,
             activeProjects: new Set(),
@@ -110,8 +115,7 @@ class Template extends React.Component {
         const { children, data } = this.props;
         const pathname = fixPathname(this.props.location.pathname);
 
-        const pages = get(data, 'allMarkdownRemark.edges');
-        const activeProject = find(pages, page => {
+        const activeProject = find(this.sidebarProjects, page => {
             return get(page, 'node.fields.slug') === this.state.activeProject;
         });
         const isRoot = pathname === '/';
@@ -131,7 +135,7 @@ class Template extends React.Component {
             <main className={s.container}>
                 <aside className={s.sidebar}>
                     <ul className={s.projects}>
-                        {pages.map((project, index) => (
+                        {this.sidebarProjects.map((project, index) => (
                             <Project
                                 key={index}
                                 project={project}
@@ -253,6 +257,14 @@ function InfoBox({ project, link }) {
             <p>Mehr info →</p>
         </Link>
     );
+}
+
+function getSidebarProjects(pages) {
+    return pages.filter(page => {
+        return SIDEBAR_SLUGS.some(slug => {
+            return page.node.fields.slug.startsWith(slug);
+        });
+    });
 }
 
 export default TemplateContainer;
