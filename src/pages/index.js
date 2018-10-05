@@ -1,9 +1,9 @@
 import React from 'react';
 
-class BlogIndex extends React.Component {
+class Index extends React.Component {
     render() {
         return <></>;
     }
 }
 
-export default BlogIndex;
+export default Index;

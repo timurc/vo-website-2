@@ -12,8 +12,6 @@ import Sternchen from './sternchen.svg';
 import './base.css';
 import s from './style.module.less';
 
-const SIDEBAR_SLUGS = ['/vo', '/projekte'];
-
 class TemplateContainer extends React.Component {
     render() {
         const { children, location } = this.props;
