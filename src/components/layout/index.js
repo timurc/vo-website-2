@@ -29,7 +29,10 @@ class TemplateContainer extends React.Component {
                                 siteUrl
                             }
                         }
-                        allMarkdownRemark(sort: { fields: [frontmatter___order], order: DESC }) {
+                        allMarkdownRemark(
+                            sort: { fields: [frontmatter___order], order: DESC }
+                            filter: { fields: { slug: { regex: "/^/(projekte|vo)/" } } }
+                        ) {
                             edges {
                                 node {
                                     fields {
@@ -69,7 +72,7 @@ class Template extends React.Component {
         super(props);
         const pathname = fixPathname(this.props.location.pathname);
 
-        this.sidebarProjects = getSidebarProjects(get(this.props.data, 'allMarkdownRemark.edges'));
+        this.sidebarProjects = get(this.props.data, 'allMarkdownRemark.edges');
 
         this.state = {
             activeProject: pathname,
@@ -145,6 +148,9 @@ class Template extends React.Component {
                                 openInfoBox={this.state.activeProject === project.node.fields.slug}
                             />
                         ))}
+                        <li>
+                            <Link to="/neuigkeiten/">neuigkeiten</Link>
+                        </li>
                     </ul>
                     <>
                         {typeof window === `undefined` ? (
@@ -257,14 +263,6 @@ function InfoBox({ project, link }) {
             <p>Mehr info →</p>
         </Link>
     );
-}
-
-function getSidebarProjects(pages) {
-    return pages.filter(page => {
-        return SIDEBAR_SLUGS.some(slug => {
-            return page.node.fields.slug.startsWith(slug);
-        });
-    });
 }
 
 export default TemplateContainer;
