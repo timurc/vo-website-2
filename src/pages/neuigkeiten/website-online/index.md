@@ -1,7 +1,7 @@
 ---
 title: Website online
 date: 2016-05-09
-mainImage: vsternchen
+mainImage: "./vsternchen.jpg"
 ---
 
 Yuhu, wir sind online!

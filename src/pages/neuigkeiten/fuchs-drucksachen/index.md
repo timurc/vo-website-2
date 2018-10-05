@@ -1,14 +1,14 @@
 ---
 title: Drucksachen für fuchs+wald
 date: 2016-09-16
-mainImage: cover
+mainImage: "./cover.jpg"
 images:
- - IMG_5523
- - IMG_5527
- - IMG_5531
- - IMG_5537
- - IMG_5542
- - IMG_5557
+ - "./IMG_5523.jpg"
+ - "./IMG_5527.jpg"
+ - "./IMG_5531.jpg"
+ - "./IMG_5537.jpg"
+ - "./IMG_5542.jpg"
+ - "./IMG_5557.jpg"
 
 ---
 

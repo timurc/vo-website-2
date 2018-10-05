@@ -1,10 +1,10 @@
 ---
 title: Premiere von Jona und die Tiefseemonster
 date: 2017-06-28
-mainImage: cover
+mainImage: "./cover.jpg"
 images:
- - DSCF5072
- - DSCF5093
+ - "./DSCF5072.jpg"
+ - "./DSCF5093.jpg"
 
 ---
 
