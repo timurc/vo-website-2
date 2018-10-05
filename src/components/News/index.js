@@ -9,7 +9,6 @@ import s from './style.module.less';
 class News extends React.Component {
     render() {
         const { location } = this.props;
-        console.log(location);
 
         return (
             <StaticQuery
@@ -60,7 +59,6 @@ class News extends React.Component {
 }
 
 function Template({ data, location }) {
-    console.log(data, location);
     const news = get(data, 'allMarkdownRemark.edges');
     return (
         <ul>
