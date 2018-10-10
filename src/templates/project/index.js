@@ -3,10 +3,10 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import get from 'lodash/get';
 import Img from '../../components/Img';
+import { DateFormatted } from './../../components/Utils';
 import { BackgroundImageContext } from './../../components/layout/background-image-context';
 
 import s from './style.module.less';
-import { convertReactPropstoHtmlAttributes } from 'react-helmet/lib/HelmetUtils';
 
 class BlogPostTemplateContext extends React.Component {
     render() {
@@ -50,6 +50,9 @@ class BlogPostTemplate extends React.Component {
                                 <HeadSection>{post.frontmatter.year}</HeadSection>
                                 <HeadSection>{post.frontmatter.what}</HeadSection>
                                 <HeadSection>{post.frontmatter.what2}</HeadSection>
+                                <HeadSection>
+                                    {post.frontmatter.date && <DateFormatted date={post.frontmatter.date} />}
+                                </HeadSection>
                                 <hr />
                             </header>
                             <p>{post.frontmatter.date}</p>
@@ -121,6 +124,7 @@ export const pageQuery = graphql`
                 description
                 what
                 what2
+                date
                 mainImage {
                     childImageSharp {
                         resize(width: 2000) {
