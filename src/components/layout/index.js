@@ -158,8 +158,14 @@ class Template extends React.Component {
                                     openInfoBox={this.state.activeProject === project.node.fields.slug}
                                 />
                             ))}
-                            <li>
-                                <Link to="/neuigkeiten/">neuigkeiten</Link>
+                            <li
+                                className={classNames(s.project, {
+                                    [s.project_isOpen]: pathname.startsWith('/neuigkeiten'),
+                                })}
+                            >
+                                <Link className={s.projectLink} to="/neuigkeiten/">
+                                    neuigkeiten
+                                </Link>
                             </li>
                         </ul>
                         <>
