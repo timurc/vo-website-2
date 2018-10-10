@@ -8,7 +8,7 @@ export function DateFormatted({ date, className }) {
         day: 'numeric',
     });
     return (
-        <time className={className} datetime={date}>
+        <time className={className} dateTime={date}>
             {dateString}
         </time>
     );
