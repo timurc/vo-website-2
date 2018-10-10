@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import Img from './../Img';
+import { DateFormatted } from './../Utils';
 
 import s from './style.module.less';
 
@@ -61,24 +62,25 @@ class News extends React.Component {
     }
 }
 
-function Template({ data, location, children }) {
+function Template({ data, children }) {
     const news = get(data, 'allMarkdownRemark.edges');
 
     return (
-        <ul>
+        <div>
             {news.map(news => {
                 const img = get(news, 'node.frontmatter.mainImage.childImageSharp.fluid');
                 return (
-                    <li key={news.node.fields.slug}>
+                    <article key={news.node.fields.slug}>
                         <Link className={s.newsLink} to={news.node.fields.slug}>
+                            <DateFormatted date={news.node.frontmatter.date} />
+                            <h1>{news.node.frontmatter.title}</h1>
                             <Img sizes="(max-width: 450px) 100vw, 450px" {...img} />
-                            {news.node.frontmatter.title}
                         </Link>
-                    </li>
+                    </article>
                 );
             })}
             {children}
-        </ul>
+        </div>
     );
 }
 
