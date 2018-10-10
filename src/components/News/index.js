@@ -66,14 +66,16 @@ function Template({ data, children }) {
     const news = get(data, 'allMarkdownRemark.edges');
 
     return (
-        <div>
+        <div className={s.container}>
             {news.map(news => {
                 const img = get(news, 'node.frontmatter.mainImage.childImageSharp.fluid');
                 return (
                     <article key={news.node.fields.slug}>
                         <Link className={s.newsLink} to={news.node.fields.slug}>
-                            <DateFormatted date={news.node.frontmatter.date} />
-                            <h1>{news.node.frontmatter.title}</h1>
+                            <header>
+                                <DateFormatted date={news.node.frontmatter.date} />
+                                <h1>{news.node.frontmatter.title}</h1>
+                            </header>
                             <Img sizes="(max-width: 450px) 100vw, 450px" {...img} />
                         </Link>
                     </article>
