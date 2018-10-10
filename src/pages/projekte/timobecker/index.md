@@ -2,7 +2,7 @@
 title: Timo Becker
 what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT, UMSETZUNG
 what2: website, visitenkarte, briefpapier, installation
-date: "2016"
+year: "2016"
 mainImage: "./4800.jpg"
 description: Illustrator in Berlin
 order: 8

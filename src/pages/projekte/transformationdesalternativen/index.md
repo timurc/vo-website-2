@@ -2,7 +2,7 @@
 title: Transformation des Alternativen
 what: GESTALTUNG & KONZEPT
 what2: logo, buch im buch
-date: "2017"
+year: "2017"
 description: Veranstaltungsreihe
 mainImage: "./TDA-291.jpg"
 order: 9

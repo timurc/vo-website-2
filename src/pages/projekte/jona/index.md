@@ -2,7 +2,7 @@
 title: Jona und die Tiefseemonster
 what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT, UMSETZUNG
 what2: logo, website, roll-up
-date: "2017"
+year: "2017"
 description: Website für Theaterstück
 mainImage: "./bg.jpg"
 order: 9

@@ -2,7 +2,7 @@
 title: Vostel
 what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT
 what2: website, suchmaske, drucksachen
-date: 2017/2018
+year: 2017/2018
 description: Digitale Engagementplattform mit Herz
 order: 10
 link: 

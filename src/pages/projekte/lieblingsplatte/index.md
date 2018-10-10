@@ -1,6 +1,6 @@
 ---
 title: Lieblingsplatte
-date: "2014"
+year: "2014"
 
 ---
 
