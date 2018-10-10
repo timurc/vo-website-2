@@ -64,11 +64,23 @@ module.exports = {
                     {
                         serialize: ({ query: { site, allMarkdownRemark } }) => {
                             return allMarkdownRemark.edges.map(edge => {
+                                let html = edge.node.html;
+
+                                if (edge.node.frontmatter.images) {
+                                    const images = edge.node.frontmatter.images.map(image => {
+                                        return `<img src="${site.siteMetadata.siteUrl}${
+                                            image.childImageSharp.resize.src
+                                        }" />`;
+                                    });
+
+                                    html = html + images.join('<br>');
+                                }
+
                                 return Object.assign({}, edge.node.frontmatter, {
                                     description: edge.node.excerpt,
                                     url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                                     guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                                    custom_elements: [{ 'content:encoded': edge.node.html }],
+                                    custom_elements: [{ 'content:encoded': html }],
                                 });
                             });
                         },
@@ -85,8 +97,15 @@ module.exports = {
                     html
                     fields { slug }
                     frontmatter {
-                      title
-                      date
+                        title
+                        date
+                        images {
+                            childImageSharp {
+                                resize(width: 2000) {
+                                    src
+                                }
+                            }
+                        }
                     }
                   }
                 }
