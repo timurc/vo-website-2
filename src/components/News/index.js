@@ -45,11 +45,6 @@ class News extends React.Component {
                     <Template data={data} location={location}>
                         <Helmet>
                             <title>V** {data.site.siteMetadata.title} - neuigkeiten</title>
-                            <meta name="description" content={data.site.siteMetadata.description} />
-                            <meta property="og:url" content={data.site.siteMetadata.siteUrl + location.pathname} />
-                            <meta property="og:site_name" content={data.site.siteMetadata.title} />
-                            <meta property="og:image" content="/default-og-image.png" />
-                            <link rel="shortcut icon" type="image/png" href="/favicon.png" />
                         </Helmet>
                     </Template>
                 )}
@@ -58,17 +53,18 @@ class News extends React.Component {
     }
 }
 
-function Template({ data, location }) {
+function Template({ data, location, children }) {
     const news = get(data, 'allMarkdownRemark.edges');
     return (
         <ul>
             {news.map(news => {
                 return (
-                    <li>
+                    <li key={news.node.fields.slug}>
                         <Link to={news.node.fields.slug}>{news.node.frontmatter.title}</Link>
                     </li>
                 );
             })}
+            {children}
         </ul>
     );
 }
