@@ -46,25 +46,10 @@ class BlogPostTemplate extends React.Component {
                         <div className={s.inner}>
                             <header className={s.header}>
                                 <h1>{post.frontmatter.title}</h1>
-                                <p>{post.frontmatter.description}</p>
-                                <hr />
-                                {(post.frontmatter.year || post.frontmatter.what) && (
-                                    <p>
-                                        {post.frontmatter.year && (
-                                            <>
-                                                {post.frontmatter.year}
-                                                <br />
-                                            </>
-                                        )}
-                                        {post.frontmatter.what}
-                                    </p>
-                                )}
-                                {post.frontmatter.what2 && (
-                                    <>
-                                        <hr />
-                                        <p>{post.frontmatter.what2}</p>
-                                    </>
-                                )}
+                                <HeadSection>{post.frontmatter.description}</HeadSection>
+                                <HeadSection>{post.frontmatter.year}</HeadSection>
+                                <HeadSection>{post.frontmatter.what}</HeadSection>
+                                <HeadSection>{post.frontmatter.what2}</HeadSection>
                                 <hr />
                             </header>
                             <p>{post.frontmatter.date}</p>
@@ -90,6 +75,17 @@ class BlogPostTemplate extends React.Component {
             </>
         );
     }
+}
+
+function HeadSection({ children }) {
+    if (!children) return null;
+
+    return (
+        <>
+            <hr />
+            <p>{children}</p>
+        </>
+    );
 }
 
 function NextPrev({ page, rel }) {
