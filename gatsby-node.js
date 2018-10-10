@@ -21,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
                                     frontmatter {
                                         title
                                         order
+                                        date
                                         mainImage {
                                             childImageSharp {
                                                 resize(width: 700) {
@@ -52,6 +53,20 @@ exports.createPages = ({ graphql, actions }) => {
 
                     return postsSplit;
                 }, {});
+
+                if (postsSplit['neuigkeiten']) {
+                    postsSplit['neuigkeiten'].sort((neuigkeit1, neuigkeit2) => {
+                        const date1 = neuigkeit1.node.frontmatter.date;
+                        const date2 = neuigkeit2.node.frontmatter.date;
+                        if (date1 < date2) {
+                            return -1;
+                        }
+                        if (date1 > date2) {
+                            return 1;
+                        }
+                        return 0;
+                    });
+                }
 
                 forEach(postsSplit, posts => {
                     posts.forEach((post, index) => {
