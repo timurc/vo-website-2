@@ -3,10 +3,26 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import get from 'lodash/get';
 import Img from '../../components/Img';
+import { BackgroundImageContext } from './../../components/layout/background-image-context';
 
 import s from './style.module.less';
+import { convertReactPropstoHtmlAttributes } from 'react-helmet/lib/HelmetUtils';
+
+class BlogPostTemplateContext extends React.Component {
+    render() {
+        return (
+            <BackgroundImageContext.Consumer>
+                {setBackgroundImage => <BlogPostTemplate setBackgroundImage={setBackgroundImage} {...this.props} />}
+            </BackgroundImageContext.Consumer>
+        );
+    }
+}
 
 class BlogPostTemplate extends React.Component {
+    componentDidMount() {
+        const mainImageSrc = get(this.props, 'data.markdownRemark.frontmatter.mainImage.childImageSharp.fluid');
+        this.props.setBackgroundImage(mainImageSrc);
+    }
     render() {
         const post = this.props.data.markdownRemark;
         const siteTitle = get(this.props, 'data.site.siteMetadata.title');
@@ -91,7 +107,7 @@ function NextPrev({ page, rel }) {
     );
 }
 
-export default BlogPostTemplate;
+export default BlogPostTemplateContext;
 
 export const pageQuery = graphql`
     query BlogPostBySlug($slug: String!) {
@@ -113,6 +129,13 @@ export const pageQuery = graphql`
                     childImageSharp {
                         resize(width: 2000) {
                             src
+                        }
+                        fluid(maxWidth: 2000) {
+                            base64
+                            src
+                            srcSet
+                            aspectRatio
+                            sizes
                         }
                     }
                 }

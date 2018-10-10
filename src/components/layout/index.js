@@ -8,6 +8,8 @@ import Pieces from './../Pieces';
 import Helmet from 'react-helmet';
 import Logo from './vsternchen.svg';
 import Sternchen from './sternchen.svg';
+import { BackgroundImageContext } from './background-image-context';
+import { ImgInner } from './../Img';
 
 import './base.css';
 import s from './style.module.less';
@@ -72,9 +74,16 @@ class Template extends React.Component {
 
         this.sidebarProjects = get(this.props.data, 'allMarkdownRemark.edges');
 
+        this.setBackgroundImage = image => {
+            this.setState({
+                backgroundImage: image,
+            });
+        };
+
         this.state = {
             activeProject: pathname,
             activeProjects: new Set(),
+            setBackgroundImage: this.setBackgroundImage,
         };
 
         if (pathname !== '/') {
@@ -121,11 +130,13 @@ class Template extends React.Component {
         });
         const isRoot = pathname === '/';
         const fullScreenBackground =
-            this.state.activeProject &&
-            this.state.activeProject !== '/' &&
-            Pieces[this.state.activeProject] &&
-            Pieces[this.state.activeProject].fullScreen;
+            this.state.backgroundImage ||
+            (this.state.activeProject &&
+                this.state.activeProject !== '/' &&
+                Pieces[this.state.activeProject] &&
+                Pieces[this.state.activeProject].fullScreen);
         const marginBottom =
+            this.state.backgroundImage ||
             fullScreenBackground ||
             (this.state.activeProject &&
                 this.state.activeProject !== '/' &&
@@ -133,64 +144,75 @@ class Template extends React.Component {
                 Pieces[this.state.activeProject].marginBottom);
 
         return (
-            <div className={s.container}>
-                <nav className={s.sidebar}>
-                    <ul className={s.projects}>
-                        {this.sidebarProjects.map((project, index) => (
-                            <Project
-                                key={index}
-                                project={project}
-                                activateProject={project => this.activateProject(project)}
-                                pathname={pathname}
-                                activeProjects={this.state.activeProjects}
-                                openInfoBox={this.state.activeProject === project.node.fields.slug}
-                            />
-                        ))}
-                        <li>
-                            <Link to="/neuigkeiten/">neuigkeiten</Link>
-                        </li>
-                    </ul>
-                    <>
-                        {typeof window === `undefined` ? (
-                            <Link className={s.homeButton} style={{ backgroundImage: `url(${Sternchen})` }} to={'/'}>
-                                home
-                            </Link>
-                        ) : (
-                            <button
-                                className={s.homeButton}
-                                style={{ backgroundImage: `url(${Sternchen})` }}
-                                onClick={() => this.clear()}
-                            >
-                                home
-                            </button>
+            <BackgroundImageContext.Provider value={this.state.setBackgroundImage}>
+                <div className={s.container}>
+                    <nav className={s.sidebar}>
+                        <ul className={s.projects}>
+                            {this.sidebarProjects.map((project, index) => (
+                                <Project
+                                    key={index}
+                                    project={project}
+                                    activateProject={project => this.activateProject(project)}
+                                    pathname={pathname}
+                                    activeProjects={this.state.activeProjects}
+                                    openInfoBox={this.state.activeProject === project.node.fields.slug}
+                                />
+                            ))}
+                            <li>
+                                <Link to="/neuigkeiten/">neuigkeiten</Link>
+                            </li>
+                        </ul>
+                        <>
+                            {typeof window === `undefined` ? (
+                                <Link
+                                    className={s.homeButton}
+                                    style={{ backgroundImage: `url(${Sternchen})` }}
+                                    to={'/'}
+                                >
+                                    home
+                                </Link>
+                            ) : (
+                                <button
+                                    className={s.homeButton}
+                                    style={{ backgroundImage: `url(${Sternchen})` }}
+                                    onClick={() => this.clear()}
+                                >
+                                    home
+                                </button>
+                            )}
+                        </>
+                    </nav>
+                    <div
+                        style={{ backgroundImage: `url(${Logo})` }}
+                        className={classNames(s.canvas, {
+                            [s.canvas__grayscale]: this.state.activeProjects.has('/base/'),
+                        })}
+                    >
+                        {Array.from(this.state.activeProjects).map(activeProject => {
+                            const Piece = Pieces[activeProject] && Pieces[activeProject].component;
+                            if (Piece) {
+                                return (
+                                    <React.Fragment key={activeProject}>
+                                        <Piece />
+                                    </React.Fragment>
+                                );
+                            }
+                        })}
+                        {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
+                        {this.state.backgroundImage && (
+                            <ImgInner className={s.backgroundImage} {...this.state.backgroundImage} />
                         )}
-                    </>
-                </nav>
-                <div
-                    style={{ backgroundImage: `url(${Logo})` }}
-                    className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
-                >
-                    {Array.from(this.state.activeProjects).map(activeProject => {
-                        const Piece = Pieces[activeProject] && Pieces[activeProject].component;
-                        if (Piece) {
-                            return (
-                                <React.Fragment key={activeProject}>
-                                    <Piece />
-                                </React.Fragment>
-                            );
-                        }
-                    })}
-                    {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
+                    </div>
+                    <main
+                        className={classNames(s.content, {
+                            [s.content__fullScreen]: fullScreenBackground,
+                            [s.content__marginBottom]: marginBottom,
+                        })}
+                    >
+                        {children}
+                    </main>
                 </div>
-                <main
-                    className={classNames(s.content, {
-                        [s.content__fullScreen]: fullScreenBackground,
-                        [s.content__marginBottom]: marginBottom,
-                    })}
-                >
-                    {children}
-                </main>
-            </div>
+            </BackgroundImageContext.Provider>
         );
     }
 }

@@ -10,7 +10,7 @@ import s from './style.module.less';
 
 class News extends React.Component {
     render() {
-        const { location } = this.props;
+        const { location, children } = this.props;
 
         return (
             <StaticQuery
@@ -55,6 +55,7 @@ class News extends React.Component {
                         <Helmet>
                             <title>V** {data.site.siteMetadata.title} - neuigkeiten</title>
                         </Helmet>
+                        {children}
                     </Template>
                 )}
             />
