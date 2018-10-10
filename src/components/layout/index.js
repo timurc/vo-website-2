@@ -133,8 +133,8 @@ class Template extends React.Component {
                 Pieces[this.state.activeProject].marginBottom);
 
         return (
-            <main className={s.container}>
-                <aside className={s.sidebar}>
+            <div className={s.container}>
+                <nav className={s.sidebar}>
                     <ul className={s.projects}>
                         {this.sidebarProjects.map((project, index) => (
                             <Project
@@ -165,7 +165,7 @@ class Template extends React.Component {
                             </button>
                         )}
                     </>
-                </aside>
+                </nav>
                 <div
                     style={{ backgroundImage: `url(${Logo})` }}
                     className={classNames(s.canvas, { [s.canvas__grayscale]: this.state.activeProjects.has('/base/') })}
@@ -182,15 +182,15 @@ class Template extends React.Component {
                     })}
                     {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
                 </div>
-                <div
+                <main
                     className={classNames(s.content, {
                         [s.content__fullScreen]: fullScreenBackground,
                         [s.content__marginBottom]: marginBottom,
                     })}
                 >
                     {children}
-                </div>
-            </main>
+                </main>
+            </div>
         );
     }
 }
