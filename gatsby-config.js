@@ -39,12 +39,13 @@ module.exports = {
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
         {
-            resolve: `gatsby-plugin-google-analytics`,
+            resolve: 'gatsby-plugin-matomo',
             options: {
-                //trackingId: `ADD YOUR TRACKING ID HERE`,
+                siteId: '1',
+                matomoUrl: 'https://piwik.volligohne.de',
+                siteUrl: 'https://volligohne.de',
             },
         },
-
         {
             resolve: `gatsby-plugin-feed`,
             options: {
