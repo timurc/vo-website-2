@@ -54,6 +54,7 @@ class TemplateContainer extends React.Component {
                                         year
                                         order
                                         description
+                                        draft
                                     }
                                 }
                             }
@@ -83,7 +84,9 @@ class Template extends React.Component {
         super(props);
         const pathname = fixPathname(this.props.location.pathname);
 
-        this.sidebarProjects = get(this.props.data, 'allMarkdownRemark.edges');
+        const projects = get(this.props.data, 'allMarkdownRemark.edges');
+
+        this.sidebarProjects = projects.filter(project => !project.node.frontmatter.draft);
 
         this.setBackgroundImage = image => {
             this.setState({
