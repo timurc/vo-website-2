@@ -8,10 +8,19 @@ a {
     color: inherit;
 }
 
-h1, h2 {
+h1, h2, h3 {
     font-size: inherit;
     margin-top: 0;
     text-transform: uppercase;
+}
+
+h3 {
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+h3 + p {
+    margin-top: 0;
 }
 
 * {
@@ -25,3 +34,8 @@ hr {
 hr:after {
     content: '**';
 }
+
+p:last-child {
+    margin-bottom: 0;
+}
+
