@@ -173,6 +173,7 @@ class Template extends React.Component {
                                 <ul className={s.secondaryLinksList}>
                                     {secondaryLinks.map(link => (
                                         <li
+                                            key={link.href}
                                             className={classNames(s.linkWrapper, {
                                                 [s.linkWrapper_isOpen]: pathname.startsWith(link.href),
                                             })}
