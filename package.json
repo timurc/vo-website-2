@@ -42,8 +42,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "build": "gatsby build",
-    "deploy-default": "gatsby build --prefix-paths && gh-pages -d public",
     "deploy-next": "rsync -avzc --del public/ voellig@antares.uberspace.de:/var/www/virtual/voellig/next.volligohne.de/",
+    "deploy": "rsync -avzc --del public/ voellig@antares.uberspace.de:/var/www/virtual/voellig/html/",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
