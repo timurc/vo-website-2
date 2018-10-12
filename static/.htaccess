@@ -2,7 +2,11 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application
 
 Redirect 301 /projekte/ /
 
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !=volligohne.de
+RewriteRule (.*) https://volligohne.de/$1 [R=301,L]
+
 RewriteEngine on
 RewriteCond %{HTTPS} !=on
 RewriteCond %{ENV:HTTPS} !=on
-RewriteRule (.*) https://next.volligohne.de/$1 [R=301,L]
+RewriteRule (.*) https://volligohne.de/$1 [R=301,L]
