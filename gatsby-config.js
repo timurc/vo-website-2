@@ -4,7 +4,6 @@ module.exports = {
         description: 'Labor für Gestaltung in Berlin',
         siteUrl: 'https://volligohne.de',
     },
-    // pathPrefix: '/gatsby-starter-blog',
     plugins: [
         {
             resolve: `gatsby-source-filesystem`,
@@ -118,7 +117,6 @@ module.exports = {
                 ],
             },
         },
-        `gatsby-plugin-offline`,
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-less`,
         {
