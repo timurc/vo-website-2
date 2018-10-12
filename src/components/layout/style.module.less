@@ -63,6 +63,21 @@
         padding-bottom: 3rem;
         width: 100%;
     }
+
+    @media (min-width: @breakPointMobile) {
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 3rem;
+    }
+}
+
+.secondaryLinksList {
+    padding: 0;
+    list-style: none;
+}
+
+.secondaryLinks {
+    margin-top: auto;
 }
 
 .infobox {
@@ -85,7 +100,7 @@
     }
 }
 
-.project {
+.linkWrapper {
     position: relative;
 
     @media (min-width: @breakPointMobile) {
@@ -98,12 +113,12 @@
     }
 }
 
-.project_isOpen {
+.linkWrapper_isOpen {
    font-weight: bold;
    text-transform: uppercase;
 }
 
-.projectLink, .homeButton {
+.link, .homeButton {
     background: transparent;
     font-family: inherit;
     border: none;
@@ -117,7 +132,7 @@
     text-transform: inherit;
 }
 
-.projectLink {
+.link {
     transition: all .1s;
     background-image: linear-gradient(to bottom, black 0%, black 100%);
     background-size: 100% .15em;
@@ -126,8 +141,8 @@
     display: inline;
 }
 
-.project_isActive, .project_isOpen {
-     .projectLink {
+.linkWrapper_isActive, .linkWrapper_isOpen {
+     .link {
         background-position: 0px 0.95em;
         background-size: 100% .1em;
     }
@@ -144,7 +159,7 @@
     }
 }
 
-.homeButton:focus, .projectLink:focus {
+.homeButton:focus, .link:focus {
     outline: none;
     background-color: #f3f3f3;
 }

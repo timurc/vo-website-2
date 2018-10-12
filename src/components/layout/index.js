@@ -14,6 +14,17 @@ import { ImgInner } from './../Img';
 import './base.css';
 import s from './style.module.less';
 
+const secondaryLinks = [
+    {
+        label: 'neuigkeiten',
+        href: '/neuigkeiten/',
+    },
+    {
+        label: 'kontakt',
+        href: '/kontakt/',
+    },
+];
+
 class TemplateContainer extends React.Component {
     render() {
         const { children, location } = this.props;
@@ -158,14 +169,20 @@ class Template extends React.Component {
                                     openInfoBox={this.state.activeProject === project.node.fields.slug}
                                 />
                             ))}
-                            <li
-                                className={classNames(s.project, {
-                                    [s.project_isOpen]: pathname.startsWith('/neuigkeiten'),
-                                })}
-                            >
-                                <Link className={s.projectLink} to="/neuigkeiten/">
-                                    neuigkeiten
-                                </Link>
+                            <li className={s.secondaryLinks}>
+                                <ul className={s.secondaryLinksList}>
+                                    {secondaryLinks.map(link => (
+                                        <li
+                                            className={classNames(s.linkWrapper, {
+                                                [s.linkWrapper_isOpen]: pathname.startsWith(link.href),
+                                            })}
+                                        >
+                                            <Link className={s.link} to={link.href}>
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
                         </ul>
                         <>
@@ -225,9 +242,9 @@ class Template extends React.Component {
 
 function Project({ project, activateProject, activeProjects, pathname, openInfoBox }) {
     const isOpen = project.node.fields.slug === pathname;
-    const className = classNames(s.project, {
-        [s.project_isActive]: activeProjects.has(project.node.fields.slug),
-        [s.project_isOpen]: isOpen,
+    const className = classNames(s.linkWrapper, {
+        [s.linkWrapper_isActive]: activeProjects.has(project.node.fields.slug),
+        [s.linkWrapper_isOpen]: isOpen,
     });
 
     // hack around react re-using li element and not updating className when build for server :-/
@@ -235,7 +252,7 @@ function Project({ project, activateProject, activeProjects, pathname, openInfoB
     if (typeof window === `undefined`) {
         return (
             <div className={className}>
-                <a href={project.node.fields.slug} className={s.projectLink}>
+                <a href={project.node.fields.slug} className={s.link}>
                     {project.node.frontmatter.title}
                 </a>
             </div>
@@ -254,7 +271,7 @@ function Project({ project, activateProject, activeProjects, pathname, openInfoB
                             activateProject(project.node.fields.slug);
                         }
                     }}
-                    className={s.projectLink}
+                    className={s.link}
                 >
                     {project.node.frontmatter.title}
                 </div>
