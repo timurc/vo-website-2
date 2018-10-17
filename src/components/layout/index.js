@@ -157,6 +157,19 @@ class Template extends React.Component {
                 Pieces[this.state.activeProject] &&
                 Pieces[this.state.activeProject].marginBottom);
 
+        const backgroundPieces = Array.from(this.state.activeProjects)
+            .map(activeProject => {
+                const Piece = Pieces[activeProject] && Pieces[activeProject].component;
+                if (Piece) {
+                    return (
+                        <React.Fragment key={activeProject}>
+                            <Piece />
+                        </React.Fragment>
+                    );
+                }
+            })
+            .filter(piece => piece);
+
         return (
             <BackgroundImageContext.Provider value={this.state.setBackgroundImage}>
                 <div className={s.container}>
@@ -215,20 +228,12 @@ class Template extends React.Component {
                             [s.canvas__grayscale]: this.state.activeProjects.has('/base/'),
                         })}
                     >
-                        {Array.from(this.state.activeProjects).map(activeProject => {
-                            const Piece = Pieces[activeProject] && Pieces[activeProject].component;
-                            if (Piece) {
-                                return (
-                                    <React.Fragment key={activeProject}>
-                                        <Piece />
-                                    </React.Fragment>
-                                );
-                            }
-                        })}
+                        {backgroundPieces}
                         {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
-                        {this.state.backgroundImage && (
-                            <ImgInner className={s.backgroundImage} {...this.state.backgroundImage} />
-                        )}
+                        {this.state.backgroundImage &&
+                            !backgroundPieces.length && (
+                                <ImgInner className={s.backgroundImage} {...this.state.backgroundImage} />
+                            )}
                     </div>
                     <main
                         className={classNames(s.content, {
