@@ -29,7 +29,8 @@ class BlogPostTemplate extends React.Component {
         const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl');
         const { previous, next } = this.props.pageContext;
         const images = get(post, 'frontmatter.images');
-        const mainImageSrc = get(post, 'frontmatter.mainImage.childImageSharp.resize.src');
+        const ogImage = get(post, 'frontmatter.mainImage.childImageSharp.resize.src');
+        const link = post.frontmatter.link;
 
         return (
             <>
@@ -55,6 +56,7 @@ class BlogPostTemplate extends React.Component {
                                 <HeadSection>
                                     {post.frontmatter.date && <DateFormatted date={post.frontmatter.date} />}
                                 </HeadSection>
+                                <HeadSection>{link && <a href={link.href}>{link.title}</a>}</HeadSection>
                                 <hr />
                             </header>
                             <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -127,6 +129,10 @@ export const pageQuery = graphql`
                 what
                 what2
                 date
+                link {
+                    title
+                    href
+                }
                 mainImage {
                     childImageSharp {
                         resize(width: 2000) {
