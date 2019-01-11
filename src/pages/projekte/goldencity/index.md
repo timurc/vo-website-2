@@ -6,6 +6,9 @@ year: "seit 2013"
 description: Temporäre Hafenbar in Bremen
 mainImage: "./IMG_4128.jpg"
 order: 3
+link: 
+  title: goldencity-bremen.de
+  href: http://www.goldencity-bremen.de/
 images:
  - "./IMG_4144.jpg"
  - "./IMG_4151-Edit.jpg"
