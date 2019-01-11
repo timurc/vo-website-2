@@ -26,6 +26,7 @@ class BlogPostTemplate extends React.Component {
     render() {
         const post = this.props.data.markdownRemark;
         const siteTitle = get(this.props, 'data.site.siteMetadata.title');
+        const siteUrl = get(this.props, 'data.site.siteMetadata.siteUrl');
         const { previous, next } = this.props.pageContext;
         const images = get(post, 'frontmatter.images');
         const mainImageSrc = get(post, 'frontmatter.mainImage.childImageSharp.resize.src');
@@ -38,7 +39,8 @@ class BlogPostTemplate extends React.Component {
                         name="description"
                         content={`${siteTitle} ** ${post.frontmatter.title} ** ${post.frontmatter.description}`}
                     />
-                    <meta property="og:image" content={mainImageSrc} />
+                    <meta property="og:description" content={post.frontmatter.description} />
+                    {ogImage && <meta property="og:image" content={siteUrl + ogImage} />}
                     <meta property="og:title" content={`V** ${post.frontmatter.title} ** ${siteTitle}`} />
                 </Helmet>
                 <article className={s.container}>
@@ -112,6 +114,7 @@ export const pageQuery = graphql`
         site {
             siteMetadata {
                 title
+                siteUrl
             }
         }
         markdownRemark(fields: { slug: { eq: $slug } }) {
