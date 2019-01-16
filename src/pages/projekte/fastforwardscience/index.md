@@ -14,6 +14,9 @@ images:
  - "./248.jpg"
  - "./249.jpg"
  - "./253.jpg"
+ - "./cover.jpg"
+ - "./IMG_8016.jpg"
+ - "./IMG_8037.jpg"
 videos: 
  - vimeo: "https://player.vimeo.com/video/268025285?autoplay=1&loop=1&color=fff"
 
