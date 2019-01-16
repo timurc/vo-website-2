@@ -77,7 +77,7 @@ function Template({ data, children }) {
                                 <DateFormatted date={news.node.frontmatter.date} />
                                 <h1>{news.node.frontmatter.title}</h1>
                             </header>
-                            <Img sizes="(max-width: 450px) 100vw, 450px" {...img} />
+                            <Img isSquare={true} sizes="(max-width: 450px) 100vw, 450px" {...img} />
                         </Link>
                     </article>
                 );
