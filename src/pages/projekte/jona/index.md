@@ -8,7 +8,7 @@ mainImage: "./bg.jpg"
 order: 9
 link: 
     title: tiefseemonster.de
-    href: "http://tiefseemonster.de"
+    href: "https://jona.volligohne.de/"
 images:
  - "./170624_19-33.jpg"
  - "./170624_19-20.jpg"
