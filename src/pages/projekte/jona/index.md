@@ -7,7 +7,7 @@ description: Website für Theaterstück
 mainImage: "./bg.jpg"
 order: 9
 link: 
-    title: tiefseemonster.de
+    title: jona.volligohne.de (Archiv)
     href: "https://jona.volligohne.de/"
 images:
  - "./170624_19-33.jpg"
