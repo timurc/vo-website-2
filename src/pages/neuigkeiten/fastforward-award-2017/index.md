@@ -9,7 +9,7 @@ images:
  - "./Award2.jpg"
  - "./Forum_WK2018_Donnerstag-2244.jpg"
  - "./Scit.jpg"
- - "./alleWürfel.jpg"
+ - "./alleWurfel.jpg"
 
 ---
 
