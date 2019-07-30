@@ -54,7 +54,6 @@ class TemplateContainer extends React.Component {
                                         year
                                         order
                                         description
-                                        draft
                                     }
                                 }
                             }
@@ -84,9 +83,7 @@ class Template extends React.Component {
         super(props);
         const pathname = fixPathname(this.props.location.pathname);
 
-        const projects = get(this.props.data, 'allMarkdownRemark.edges');
-
-        this.sidebarProjects = projects.filter(project => !project.node.frontmatter.draft);
+        this.sidebarProjects = get(this.props.data, 'allMarkdownRemark.edges');
 
         this.setBackgroundImage = image => {
             this.setState({
@@ -230,10 +227,9 @@ class Template extends React.Component {
                     >
                         {backgroundPieces}
                         {activeProject && isRoot && <InfoBox project={activeProject} link={this.state.activeProject} />}
-                        {this.state.backgroundImage &&
-                            !backgroundPieces.length && (
-                                <ImgInner className={s.backgroundImage} {...this.state.backgroundImage} />
-                            )}
+                        {this.state.backgroundImage && !backgroundPieces.length && (
+                            <ImgInner className={s.backgroundImage} {...this.state.backgroundImage} />
+                        )}
                     </div>
                     <main
                         className={classNames(s.content, {
@@ -284,18 +280,17 @@ function Project({ project, activateProject, activeProjects, pathname, openInfoB
                 >
                     {project.node.frontmatter.title}
                 </div>
-                {openInfoBox &&
-                    !isOpen && (
-                        <Link
-                            className={s.projectMoreLink}
-                            onTouchStart={() => {
-                                navigate(project.node.fields.slug);
-                            }}
-                            to={project.node.fields.slug}
-                        >
-                            Mehr info →
-                        </Link>
-                    )}
+                {openInfoBox && !isOpen && (
+                    <Link
+                        className={s.projectMoreLink}
+                        onTouchStart={() => {
+                            navigate(project.node.fields.slug);
+                        }}
+                        to={project.node.fields.slug}
+                    >
+                        Mehr info →
+                    </Link>
+                )}
             </li>
         );
     }
