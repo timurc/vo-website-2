@@ -4,7 +4,6 @@ import frame from './frame.svg';
 
 export default {
     component: function() {
-        console.log('schnapp');
         return (
             <div className={s.container}>
                 <div className={s.k} />
