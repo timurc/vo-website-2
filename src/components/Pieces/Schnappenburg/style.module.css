@@ -52,6 +52,7 @@
 .sMiddle {
     flex: 1 1 auto;
     background-image: url("./s-2.svg");
+    margin: 0 -1px;
 }
 
 .sRight {
