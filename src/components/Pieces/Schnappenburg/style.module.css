@@ -1,0 +1,59 @@
+.container {
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    border: 2.5rem black solid;
+}
+
+.k {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    width: 100%;
+    background: url("./k.svg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.s {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.sInner {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    height: 50%;
+    width: 100%;
+}
+
+.sLeft, .sRight, .sMiddle {
+    background-size: auto 100%;
+    height: 100%;
+}
+
+.sLeft, .sRight {
+    width: 10%;
+    background-repeat: no-repeat;
+}
+
+.sLeft {
+    background-image: url("./s-1.svg");
+    background-position: right;
+}
+
+.sMiddle {
+    flex: 1 1 auto;
+    background-image: url("./s-2.svg");
+}
+
+.sRight {
+    background-image: url("./s-3.svg");
+}

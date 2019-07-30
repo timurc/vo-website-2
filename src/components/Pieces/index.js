@@ -8,6 +8,7 @@ import StrassenSchilder from './StrassenSchilder';
 import Tiefseemonster from './Tiefseemonster';
 import Lieblingsplatte from './Lieblingsplatte';
 import Vostel from './Vostel';
+import Schnappenburg from './Schnappenburg';
 
 export default {
     '/projekte/goldencity/': Goldencity,
@@ -20,4 +21,5 @@ export default {
     '/projekte/jona/': Tiefseemonster,
     '/projekte/lieblingsplatte/': Lieblingsplatte,
     '/projekte/vostel/': Vostel,
+    '/projekte/schnappenburg/': Schnappenburg,
 };
