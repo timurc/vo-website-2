@@ -3,10 +3,10 @@ title: Kristine Schnappenburg
 what: GESTALTUNGS- & KOMMUNIKATIONSKONZEPT, UMSETZUNG
 what2: logo, website, katalog
 year: "2019"
-description: Website & Katalog für eine Künstlering
+description: Website & Katalog für eine Künstlerin
 order: 15
 link: 
-    title: schnappenburg.de/
+    title: schnappenburg.de
     href: "https://schnappenburg.de/"
 images:
  - "./IMG_8671.jpg"
@@ -18,5 +18,3 @@ images:
  - "./IMG_8689.jpg"
 
 ---
-
-Kristine Schnappenburg ist Künsterin aus Berlin. Blablabliubb farbe website katalog.
