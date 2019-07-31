@@ -138,7 +138,7 @@ export const pageQuery = graphql`
                         resize(width: 2000) {
                             src
                         }
-                        fluid(maxWidth: 2000) {
+                        fluid(maxWidth: 3000, srcSetBreakpoints: [800, 1500, 2000, 3000]) {
                             base64
                             src
                             srcSet
@@ -149,7 +149,7 @@ export const pageQuery = graphql`
                 }
                 images {
                     childImageSharp {
-                        fluid(maxWidth: 2000) {
+                        fluid(maxWidth: 3000, srcSetBreakpoints: [800, 1500, 2000, 3000]) {
                             base64
                             src
                             srcSet

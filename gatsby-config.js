@@ -35,7 +35,12 @@ module.exports = {
             },
         },
         `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
+        {
+            resolve: `gatsby-plugin-sharp`,
+            options: {
+                defaultQuality: 80,
+            },
+        },
         {
             resolve: 'gatsby-plugin-matomo',
             options: {
@@ -67,9 +72,7 @@ module.exports = {
 
                                 if (edge.node.frontmatter.images) {
                                     const images = edge.node.frontmatter.images.map(image => {
-                                        return `<img src="${site.siteMetadata.siteUrl}${
-                                            image.childImageSharp.resize.src
-                                        }" />`;
+                                        return `<img src="${site.siteMetadata.siteUrl}${image.childImageSharp.resize.src}" />`;
                                     });
 
                                     html = html + images.join('<br>');

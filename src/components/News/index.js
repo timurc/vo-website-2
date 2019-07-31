@@ -37,7 +37,7 @@ class News extends React.Component {
                                         description
                                         mainImage {
                                             childImageSharp {
-                                                fluid {
+                                                fluid(maxWidth: 450, srcSetBreakpoints: [450, 900]) {
                                                     srcSet
                                                     aspectRatio
                                                     base64
