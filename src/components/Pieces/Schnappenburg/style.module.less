@@ -1,8 +1,14 @@
+@import '../../../vars.less';
+
 .container {
     background-size: cover;
     height: 100%;
     width: 100%;
     border: 2.5rem black solid;
+
+    @media (max-width: @breakPointM) {
+        border-width: 2rem;
+    }
 }
 
 .k {
@@ -15,10 +21,8 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-}
 
-@media (max-aspect-ratio: 1/1) {
-    .k {
+    @media (max-aspect-ratio: ~"1/1") {
         background-size: cover;
     }
 }
@@ -49,6 +53,10 @@
 .sLeft, .sRight {
     width: 7rem;
     background-repeat: no-repeat;
+
+    @media (max-width: @breakPointM) {
+        width: 5rem;
+    }
 }
 
 .sLeft {
