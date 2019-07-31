@@ -36,14 +36,13 @@
     margin-top: 1rem;
     display: grid;
     grid-gap: 1rem;
-
-    @media (min-width: @breakPointM) {
-        grid-template-columns: 1fr repeat(2, minmax(0, 20rem)) 1fr;
-        grid-template-rows: 1fr auto;
-    }
+    grid-template-columns: 1fr repeat(2, minmax(0, 20rem)) 1fr;
+    grid-template-rows: 1fr auto;
 
     @media (max-width: @breakPointM) {
-        grid-template-columns: 1fr;
+        display: block;
+        min-height: 0;
+        margin-top: 80vh;
         margin-bottom: 1rem;
     }
 }
@@ -58,6 +57,12 @@
 
     &:hover {
         text-decoration: underline;
+    }
+
+    @media (max-width: @breakPointM) {
+        & + & {
+            margin-top: 1rem;
+        }
     }
 
     @media (min-width: @breakPointM) {
