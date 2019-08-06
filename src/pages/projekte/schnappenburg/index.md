@@ -10,12 +10,12 @@ link:
     title: schnappenburg.de
     href: "https://schnappenburg.de/"
 images:
- - "./IMG_8671.jpg"
- - "./IMG_8651.jpg"
- - "./IMG_8628-Edit.jpg"
- - "./IMG_8626-Edit.jpg"
- - "./IMG_8641.jpg"
- - "./IMG_8634.jpg"
- - "./IMG_8689.jpg"
+  - file: "./IMG_8671.jpg"
+  - file: "./IMG_8651.jpg"
+  - file: "./IMG_8628-Edit.jpg"
+  - file: "./IMG_8626-Edit.jpg"
+  - file: "./IMG_8641.jpg"
+  - file: "./IMG_8634.jpg"
+  - file: "./IMG_8689.jpg"
 
 ---

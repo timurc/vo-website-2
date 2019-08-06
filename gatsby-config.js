@@ -72,7 +72,9 @@ module.exports = {
 
                                 if (edge.node.frontmatter.images) {
                                     const images = edge.node.frontmatter.images.map(image => {
-                                        return `<img src="${site.siteMetadata.siteUrl}${image.childImageSharp.resize.src}" />`;
+                                        if (image.file) {
+                                            return `<img src="${site.siteMetadata.siteUrl}${image.file.childImageSharp.resize.src}" />`;
+                                        }
                                     });
 
                                     html = html + images.join('<br>');
@@ -102,9 +104,11 @@ module.exports = {
                         title
                         date
                         images {
-                            childImageSharp {
-                                resize(width: 2000) {
-                                    src
+                            file {
+                                childImageSharp {
+                                    resize(width: 2000) {
+                                        src
+                                    }
                                 }
                             }
                         }

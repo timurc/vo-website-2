@@ -10,10 +10,10 @@ link:
     href: "https://vostel.de"
 mainImage: "./IMG_5081.jpg"
 images:
- - "./IMG_5105.jpg"
- - "./IMG_5100.jpg"
- - "./IMG_5088.jpg"
- - "./IMG_5081.jpg"
+  - file: "./IMG_5105.jpg"
+  - file: "./IMG_5100.jpg"
+  - file: "./IMG_5088.jpg"
+  - file: "./IMG_5081.jpg"
 
 
 ---

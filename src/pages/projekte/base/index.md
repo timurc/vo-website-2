@@ -7,10 +7,10 @@ description: Popup-Galerie
 mainImage: "./IMG_5157.jpg"
 order: 11
 images:
- - "./254.jpg"
- - "./256.jpg"
- - "./258.jpg"
- - "./259.jpg"
+  - file: "./254.jpg"
+  - file: "./256.jpg"
+  - file: "./258.jpg"
+  - file: "./259.jpg"
 
 ---
 

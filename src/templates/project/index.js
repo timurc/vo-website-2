@@ -5,6 +5,7 @@ import get from 'lodash/get';
 import Img from '../../components/Img';
 import { DateFormatted } from './../../components/Utils';
 import { BackgroundImageContext } from './../../components/layout/background-image-context';
+import classNames from 'classnames';
 
 import s from './style.module.less';
 
@@ -66,7 +67,18 @@ class BlogPostTemplate extends React.Component {
                         <ul className={s.images}>
                             {images.map((image, index) => (
                                 <li key={index} className={s.imageContainer}>
-                                    <Img className={s.image} {...image.childImageSharp.fluid} />
+                                    {image.file && <Img className={s.image} {...image.file.childImageSharp.fluid} />}
+                                    {image.vimeo && (
+                                        <div className={s.vimeoContainer}>
+                                            <iframe
+                                                src={`${image.vimeo}?autoplay=1&loop=1&color=fff`}
+                                                frameborder="0"
+                                                webkitallowfullscreen
+                                                mozallowfullscreen
+                                                allowfullscreen
+                                            />
+                                        </div>
+                                    )}
                                 </li>
                             ))}
                         </ul>
@@ -148,13 +160,16 @@ export const pageQuery = graphql`
                     }
                 }
                 images {
-                    childImageSharp {
-                        fluid(maxWidth: 3000, srcSetBreakpoints: [800, 1500, 2000, 3000]) {
-                            base64
-                            src
-                            srcSet
-                            aspectRatio
-                            sizes
+                    vimeo
+                    file {
+                        childImageSharp {
+                            fluid(maxWidth: 3000, srcSetBreakpoints: [800, 1500, 2000, 3000]) {
+                                base64
+                                src
+                                srcSet
+                                aspectRatio
+                                sizes
+                            }
                         }
                     }
                 }

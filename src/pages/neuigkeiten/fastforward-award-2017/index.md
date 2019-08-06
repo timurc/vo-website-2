@@ -3,13 +3,13 @@ title: Awards für Fast Forward Science
 date: 2018-12-10
 mainImage: "./cover.jpg"
 images:
- - "./IMG_8005.jpg"
- - "./IMG_8016.jpg"
- - "./IMG_8037.jpg"
- - "./Award2.jpg"
- - "./Forum_WK2018_Donnerstag-2244.jpg"
- - "./Scit.jpg"
- - "./alleWurfel.jpg"
+  - file: "./IMG_8005.jpg"
+  - file: "./IMG_8016.jpg"
+  - file: "./IMG_8037.jpg"
+  - file: "./Award2.jpg"
+  - file: "./Forum_WK2018_Donnerstag-2244.jpg"
+  - file: "./Scit.jpg"
+  - file: "./alleWurfel.jpg"
 
 ---
 

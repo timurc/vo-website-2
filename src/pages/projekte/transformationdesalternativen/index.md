@@ -7,16 +7,16 @@ description: Veranstaltungsreihe
 mainImage: "./TDA-291.jpg"
 order: 9
 images:
- - "./TDA-262.jpg"
- - "./TDA-263.jpg"
- - "./TDA-265.jpg"
- - "./TDA-268.jpg"
- - "./TDA-276.jpg"
- - "./TDA-291.jpg"
- - "./TDA-296.jpg"
- - "./TDA-307.jpg"
- - "./TDA-310.jpg"
- - "./TDA-299.jpg"
+  - file: "./TDA-262.jpg"
+  - file: "./TDA-263.jpg"
+  - file: "./TDA-265.jpg"
+  - file: "./TDA-268.jpg"
+  - file: "./TDA-276.jpg"
+  - file: "./TDA-291.jpg"
+  - file: "./TDA-296.jpg"
+  - file: "./TDA-307.jpg"
+  - file: "./TDA-310.jpg"
+  - file: "./TDA-299.jpg"
 
 ---
 

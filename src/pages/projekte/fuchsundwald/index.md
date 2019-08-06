@@ -10,13 +10,13 @@ link:
     title: fuchsundwald.de
     href: "https://fuchsundwald.de"
 images:
-- "./IMG_5531.jpg"
-- "./IMG_5557.jpg"
-- "./IMG_5527.jpg"
-- "./IMG_5523.jpg"
-- "./IMG_5537.jpg"
-- "./IMG_5542.jpg"
-- "./11-03-22-25-DSC06097.jpg"
+  - file: "./IMG_5531.jpg"
+  - file: "./IMG_5557.jpg"
+  - file: "./IMG_5527.jpg"
+  - file: "./IMG_5523.jpg"
+  - file: "./IMG_5537.jpg"
+  - file: "./IMG_5542.jpg"
+  - file: "./11-03-22-25-DSC06097.jpg"
 ---
 
 <a target="_blank" class="blank-link" href="https://twitter.com/volligohne/status/862955898913918977">

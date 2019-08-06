@@ -10,16 +10,15 @@ link:
     title: timobecker.com
     href: "https://timobecker.com"
 images:
- - "./IMG_8380-Edit.jpg"
- - "./IMG_8384.jpg"
- - "./IMG_8375-Edit.jpg"
- - "./4792.jpg"
- - "./4800.jpg"
- - "./8272.jpg"
- - "./8275.jpg"
- - "./8293.jpg"
-videos: 
- - vimeo: "https://player.vimeo.com/video/194544003?autoplay=1&loop=1&color=fff"
+  - file: "./IMG_8380-Edit.jpg"
+  - file: "./IMG_8384.jpg"
+  - file: "./IMG_8375-Edit.jpg"
+  - file: "./4792.jpg"
+  - file: "./4800.jpg"
+  - vimeo: "https://player.vimeo.com/video/194544003"
+  - file: "./8272.jpg"
+  - file: "./8275.jpg"
+  - file: "./8293.jpg"
 
 ---
 

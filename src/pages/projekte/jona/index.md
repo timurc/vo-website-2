@@ -10,11 +10,10 @@ link:
     title: jona.volligohne.de (Archiv)
     href: "https://jona.volligohne.de/"
 images:
- - "./170624_19-33.jpg"
- - "./170624_19-20.jpg"
-videos: 
- - vimeo: "https://player.vimeo.com/video/222976845?autoplay=1&loop=1&color=fff"
- - vimeo: "https://player.vimeo.com/video/222976948?autoplay=1&loop=1&color=fff"
+  - file: "./170624_19-33.jpg"
+  - vimeo: "https://player.vimeo.com/video/222976845"
+  - vimeo: "https://player.vimeo.com/video/222976948"
+  - file: "./170624_19-20.jpg"
 
 ---
 

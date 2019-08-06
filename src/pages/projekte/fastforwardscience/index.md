@@ -10,15 +10,14 @@ link:
     title: fastforwardscience.de
     href: "https://fastforwardscience.de"
 images:
- - "./238.jpg"
- - "./248.jpg"
- - "./249.jpg"
- - "./253.jpg"
- - "./cover.jpg"
- - "./IMG_8016.jpg"
- - "./IMG_8037.jpg"
-videos: 
- - vimeo: "https://player.vimeo.com/video/268025285?autoplay=1&loop=1&color=fff"
+  - vimeo: "https://player.vimeo.com/video/268025285"
+  - file: "./238.jpg"
+  - file: "./248.jpg"
+  - file: "./249.jpg"
+  - file: "./253.jpg"
+  - file: "./cover.jpg"
+  - file: "./IMG_8016.jpg"
+  - file: "./IMG_8037.jpg"
 
 ---
 

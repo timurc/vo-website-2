@@ -3,12 +3,12 @@ title: Relaunch von vostel.de
 date: 2018-01-30
 mainImage: "./cover.jpg"
 images:
- - "./IMG_4928.jpg"
- - "./IMG_4952.jpg"
- - "./IMG_4931.jpg"
- - "./IMG_4978.jpg"
- - "./IMG_5000.jpg"
- - "./IMG_5023.jpg"
+  - file: "./IMG_4928.jpg"
+  - file: "./IMG_4952.jpg"
+  - file: "./IMG_4931.jpg"
+  - file: "./IMG_4978.jpg"
+  - file: "./IMG_5000.jpg"
+  - file: "./IMG_5023.jpg"
 
 ---
 

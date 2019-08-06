@@ -3,7 +3,7 @@ title: Relaunch von fastforwardscience.de
 date: 2018-04-16
 mainImage: "./cover.jpg"
 images:
- - "./238.jpg"
+  - file: "./238.jpg"
 
 ---
 

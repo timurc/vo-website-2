@@ -10,8 +10,8 @@ link:
   title: goldencity-bremen.de
   href: http://www.goldencity-bremen.de/
 images:
- - "./IMG_4144.jpg"
- - "./IMG_4151-Edit.jpg"
+  - file: "./IMG_4144.jpg"
+  - file: "./IMG_4151-Edit.jpg"
 ---
 
 Das Golden City ist ein temporärer Kulturund Veranstaltungsraum in Bremen, der sich vor allem mit Sehnsucht, Erinnerung und Stadtentwicklungsfragen auseinandersetzt und die lokale Kreativwirtschaft kritisch beäugt. Seit 2013 belebt er 3 Monate im Jahr den Europahafen in Bremen.
