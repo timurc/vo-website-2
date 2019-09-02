@@ -72,10 +72,10 @@ class BlogPostTemplate extends React.Component {
                                         <div className={s.vimeoContainer}>
                                             <iframe
                                                 src={`${image.vimeo}?autoplay=1&loop=1&color=fff`}
-                                                frameborder="0"
-                                                webkitallowfullscreen
-                                                mozallowfullscreen
-                                                allowfullscreen
+                                                frameBorder="0"
+                                                webkitallowfullscreen="true"
+                                                mozallowfullscreen="true"
+                                                allowFullScreen
                                             />
                                         </div>
                                     )}
