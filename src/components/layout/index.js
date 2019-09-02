@@ -239,6 +239,7 @@ class Template extends React.Component {
                         className={classNames(s.content, {
                             [s.content__fullScreen]: fullScreenBackground,
                             [s.content__marginBottom]: marginBottom,
+                            [s.content__hasPiece]: backgroundPieces.length,
                         })}
                     >
                         {children}
