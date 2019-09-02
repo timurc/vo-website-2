@@ -68,7 +68,7 @@ export const pageQuery = graphql`
             }
         }
         allMarkdownRemark(
-            sort: { fields: [frontmatter___date], order: DESC }
+            sort: { fields: [frontmatter___date, frontmatter___order], order: [DESC, DESC] }
             filter: { fields: { slug: { regex: $slug, ne: $slug } } }
         ) {
             edges {
