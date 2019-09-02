@@ -6,6 +6,7 @@ year: "2017"
 description: Veranstaltungsreihe
 mainImage: "./TDA-291.jpg"
 order: 9
+featured: true
 images:
   - file: "./TDA-262.jpg"
   - file: "./TDA-263.jpg"

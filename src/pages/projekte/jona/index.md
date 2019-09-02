@@ -6,6 +6,7 @@ year: "2017"
 description: Website für Theaterstück
 mainImage: "./bg.jpg"
 order: 9
+featured: true
 link: 
     title: jona.volligohne.de (Archiv)
     href: "https://jona.volligohne.de/"

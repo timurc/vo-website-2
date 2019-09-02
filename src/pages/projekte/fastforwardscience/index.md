@@ -6,6 +6,7 @@ year: "2018"
 description: Der Webvideo-Wettbewerb für die Wissenschaft
 mainImage: "./240.jpg"
 order: 12
+featured: true
 link: 
     title: fastforwardscience.de
     href: "https://fastforwardscience.de"

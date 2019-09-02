@@ -6,6 +6,7 @@ year: "2016"
 description: E-Mail Marketing
 mainImage: "./IMG_5523.jpg"
 order: 7
+featured: true
 link: 
     title: fuchsundwald.de
     href: "https://fuchsundwald.de"

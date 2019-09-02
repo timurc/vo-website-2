@@ -46,7 +46,7 @@ class TemplateContainer extends React.Component {
                         }
                         allMarkdownRemark(
                             sort: { fields: [frontmatter___order], order: DESC }
-                            filter: { fields: { slug: { regex: "/^/(projekte|vo)/" } } }
+                            filter: { frontmatter: { featured: { eq: true } } }
                         ) {
                             edges {
                                 node {

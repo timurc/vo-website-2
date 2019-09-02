@@ -6,6 +6,7 @@ year: "2019"
 mainImage: "./IMG_8671.jpg"
 description: Website & Katalog für eine Künstlerin
 order: 15
+featured: true
 link: 
     title: schnappenburg.de
     href: "https://schnappenburg.de/"

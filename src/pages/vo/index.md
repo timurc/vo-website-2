@@ -1,6 +1,7 @@
 ---
 title: völlig ohne
 description: Labor für Gestaltung
+featured: true
 order: 1000
 
 ---

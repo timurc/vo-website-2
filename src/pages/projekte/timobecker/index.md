@@ -6,6 +6,7 @@ year: "2016"
 mainImage: "./4800.jpg"
 description: Illustrator in Berlin
 order: 8
+featured: true
 link: 
     title: timobecker.com
     href: "https://timobecker.com"

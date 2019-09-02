@@ -5,6 +5,7 @@ what2: website, suchmaske, drucksachen
 year: 2017/2018
 description: Digitale Engagementplattform mit Herz
 order: 10
+featured: true
 link: 
     title: vostel.de
     href: "https://vostel.de"
