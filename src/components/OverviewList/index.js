@@ -33,12 +33,14 @@ class OverviewList extends React.Component {
                 </div>
                 {items.map(item => {
                     const img = get(item, 'node.frontmatter.mainImage.childImageSharp.fluid');
+                    const { date, title, year } = item.node.frontmatter;
                     return (
                         <article key={item.node.fields.slug}>
                             <Link className={s.link} to={item.node.fields.slug}>
                                 <header>
-                                    <DateFormatted date={item.node.frontmatter.date} />
-                                    <h1>{item.node.frontmatter.title}</h1>
+                                    <DateFormatted date={date} />
+                                    {year}
+                                    <h1>{title}</h1>
                                 </header>
                                 <Img
                                     isSquare={true}
@@ -81,6 +83,7 @@ export const pageQuery = graphql`
                         year
                         date
                         description
+                        year
                         mainImage {
                             childImageSharp {
                                 fluid(maxWidth: 450, srcSetBreakpoints: [450, 900]) {
