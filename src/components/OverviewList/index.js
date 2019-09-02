@@ -28,6 +28,9 @@ class OverviewList extends React.Component {
                         setBackgroundImage();
                     }}
                 </BackgroundImageContext.Consumer>
+                <div className={s.titleContainer}>
+                    <h1 className={s.title}>{title}:</h1>
+                </div>
                 {items.map(item => {
                     const img = get(item, 'node.frontmatter.mainImage.childImageSharp.fluid');
                     return (
