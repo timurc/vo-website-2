@@ -16,6 +16,10 @@ import s from './style.module.less';
 
 const secondaryLinks = [
     {
+        label: 'projekte',
+        href: '/projekte/',
+    },
+    {
         label: 'neuigkeiten',
         href: '/neuigkeiten/',
     },

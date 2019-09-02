@@ -1,6 +1,5 @@
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript text/javascript
 
-RewriteCond %{REQUEST_URI} ^/projekte[/]?$
 RewriteRule (.*) / [R=301,L]
 
 RewriteEngine On
