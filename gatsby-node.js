@@ -75,8 +75,6 @@ exports.createPages = ({ graphql, actions }) => {
                         const next = index === posts.length - 1 ? null : posts[index + 1].node;
                         const previous = index === 0 ? null : posts[index - 1].node;
 
-                        console.log(post.node.frontmatter.title, post.node.frontmatter.type);
-
                         createPage({
                             path: post.node.fields.slug,
                             component: post.node.frontmatter.type === 'overviewList' ? OverviewList : project,
