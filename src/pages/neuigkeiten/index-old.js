@@ -1,6 +1,6 @@
 import React from 'react';
-import News from '../../components/News';
-import { BackgroundImageContext } from './../../components/layout/background-image-context';
+import News from '../../components/OverviewList';
+import { BackgroundImageContext } from '../../components/layout/background-image-context';
 
 function NewsIndex({ location }) {
     return (

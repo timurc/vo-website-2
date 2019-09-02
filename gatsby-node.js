@@ -8,6 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     return new Promise((resolve, reject) => {
         const project = path.resolve('./src/templates/project/index.js');
+        const OverviewList = path.resolve('./src/components/OverviewList/index.js');
         resolve(
             graphql(
                 `
@@ -22,6 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
                                         title
                                         order
                                         date
+                                        type
                                         mainImage {
                                             childImageSharp {
                                                 resize(width: 700) {
@@ -73,9 +75,11 @@ exports.createPages = ({ graphql, actions }) => {
                         const next = index === posts.length - 1 ? null : posts[index + 1].node;
                         const previous = index === 0 ? null : posts[index - 1].node;
 
+                        console.log(post.node.frontmatter.title, post.node.frontmatter.type);
+
                         createPage({
                             path: post.node.fields.slug,
-                            component: project,
+                            component: post.node.frontmatter.type === 'overviewList' ? OverviewList : project,
                             context: {
                                 slug: post.node.fields.slug,
                                 previous,
