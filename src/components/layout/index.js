@@ -115,9 +115,11 @@ class Template extends React.Component {
         if (this.state.activeProjects.has(project)) {
             newActiveProjects.delete(project);
             this.setState({ activeProject: undefined, activeProjects: newActiveProjects });
+            track(['trackEvent', 'ProjectBackground', 'off', project]);
         } else {
             newActiveProjects.add(project);
             this.setState({ activeProject: project, activeProjects: newActiveProjects });
+            track(['trackEvent', 'ProjectBackground', 'on', project]);
         }
 
         if (pathname !== '/') {
@@ -308,13 +310,25 @@ function fixPathname(pathname) {
 
 function InfoBox({ project, link }) {
     return (
-        <Link to={link} className={s.infobox}>
+        <Link
+            to={link}
+            className={s.infobox}
+            onClick={() => {
+                track(['trackEvent', 'Infobox', 'LinkClick', link]);
+            }}
+        >
             <h2>{project.node.frontmatter.title}</h2>
             <p>{project.node.frontmatter.year}</p>
             <p>{project.node.frontmatter.description}</p>
             <p>Mehr info →</p>
         </Link>
     );
+}
+
+function track(event) {
+    if (window._paq) {
+        window._paq.push(event);
+    }
 }
 
 export default TemplateContainer;
