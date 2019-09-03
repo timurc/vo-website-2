@@ -1,7 +1,5 @@
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript text/javascript
 
-RewriteRule (.*) / [R=301,L]
-
 RewriteEngine On
 RewriteCond %{HTTP_HOST} !=volligohne.de
 RewriteRule (.*) https://volligohne.de/$1 [R=301,L]
