@@ -41,4 +41,4 @@ Sonnenallee 200
 ---
 
 ### Datenschutzhinweis
-Wir benutzen [Matomo.](https://matomo.org/) Matomo zeichnet anonymisiert Besucherinformationen dieser Website auf. Dafür werden Cookies gesetzt. Aufgezeichnet wird auf unserem Server, nicht bei Dritten. Bei modernen Browsern kann diese Funktionalität abgeschaltet werden (*do not track*). Außerdem blocken die meisten Ad-blocker und ähnliche das Tracking.
+Wir benutzen [Matomo.](https://matomo.org/) Matomo zeichnet anonymisiert Besucherinformationen dieser Website auf. Dafür werden keine Cookies gesetzt. Aufgezeichnet wird auf unserem Server, nicht bei Dritten. Bei modernen Browsern kann diese Funktionalität abgeschaltet werden (*do not track*). 
