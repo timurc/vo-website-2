@@ -47,6 +47,7 @@ module.exports = {
                 siteId: '1',
                 matomoUrl: 'https://piwik.volligohne.de',
                 siteUrl: 'https://volligohne.de',
+                disableCookies: true,
             },
         },
         {
