@@ -9,6 +9,7 @@ import Tiefseemonster from './Tiefseemonster';
 import Lieblingsplatte from './Lieblingsplatte';
 import Vostel from './Vostel';
 import Schnappenburg from './Schnappenburg';
+import PocoLit from './PocoLit';
 
 export default {
     '/projekte/goldencity/': Goldencity,
@@ -22,4 +23,5 @@ export default {
     '/projekte/lieblingsplatte/': Lieblingsplatte,
     '/projekte/vostel/': Vostel,
     '/projekte/schnappenburg/': Schnappenburg,
+    '/projekte/pocolit/': PocoLit,
 };

@@ -1,0 +1,45 @@
+@borderWidth: 2px;
+@black: black;
+
+.decoration {
+    --square-size: 3rem;
+
+    position: absolute;
+    top: calc(var(--square-size) * -.5);
+    left: calc(var(--square-size) * -.5);
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+
+    @media (max-width: 600px) {
+        --square-size: 2rem;
+    }
+
+    path {
+        fill: none;
+    }
+}
+
+.squares {
+    height: 2000px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.square {
+    height: var(--square-size);
+    width: var(--square-size);
+    transform: translateX(calc(var(--square-size) * -.5)) translateY(calc(var(--square-size) * -.5)) rotate(45deg);
+    border: solid @borderWidth @black;
+    position: absolute;
+    pointer-events: all;
+
+    @media (max-width: 600px) {
+        &:nth-child(8n), &:nth-child(8n+1), &:nth-child(8n+2), &:nth-child(8n+3) {
+            display: none;
+        }
+    }
+}
