@@ -11,6 +11,7 @@
     animation-duration: .3s;
     animation-fill-mode: forwards;
     position: absolute;
+    top: 0;
     width: 100%;
     opacity: 0;
 }
