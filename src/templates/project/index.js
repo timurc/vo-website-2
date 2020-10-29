@@ -57,7 +57,13 @@ class BlogPostTemplate extends React.Component {
                                 <HeadSection>
                                     {post.frontmatter.date && <DateFormatted date={post.frontmatter.date} />}
                                 </HeadSection>
-                                <HeadSection>{link && <a href={link.href}>{link.title}</a>}</HeadSection>
+                                <HeadSection>
+                                    {link && (
+                                        <a href={link.href} target="_blank">
+                                            {link.title}
+                                        </a>
+                                    )}
+                                </HeadSection>
                                 <hr />
                             </header>
                             <div dangerouslySetInnerHTML={{ __html: post.html }} />

@@ -1,0 +1,62 @@
+@blue: #1d649c; // 0.1137254902 0.3921568627 0.6117647059
+@green: #3bada3; // 0.2352941176 0.6823529412 0.6392156863
+@red: #ed7380; // 0.9490196078 0.4470588235 0.5019607843
+@white: #fff;
+
+.container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+}
+
+.book {
+    height: 103px;
+    background: @green;
+    display: inline-block;
+    border-radius: 2px;
+    border: @white 0 solid;
+    position: relative;
+    z-index: 1;
+    transition: all .3s;
+    transform: translateY(0); // performace fix for safari
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: 10px;
+    }
+
+    &.above-button {
+        &:before {
+            display: none;
+        }
+
+        &:hover {
+            transform: translateY(-20px) rotate(-2deg);
+        }
+    }
+
+    &:hover {
+        transition: all .05s;
+        transform: translateY(-10px) rotate(-2deg);
+    }
+
+    &:nth-child(3n + 2) {
+        background: @red;
+    }
+
+    &:nth-child(3n + 1) {
+        background: @blue;
+    }
+
+    &.up {
+        transition: all .2s;
+    }
+}

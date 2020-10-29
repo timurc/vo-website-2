@@ -48,38 +48,6 @@ export default {
     },
 };
 
-// document.addEventListener('DOMContentLoaded', function() {
-//   const boundaryContainer = document.querySelector('#decoration_main .decoration-boundary');
-//   const squaresContainer = document.querySelector('#decoration_main .decoration-squares');
-
-//   boundaryContainer.innerHTML = BOUNDARY;
-//   const svg = document.querySelector('#decoration_main svg');
-//   const measuringPoint = svg.createSVGPoint();
-//   const boundaryPath = svg.querySelector('path');
-
-//   const points = [];
-
-//   for (let i = 0; i < SQUARES_COUNT; ) {
-//     measuringPoint.x = Math.random() * svg.viewBox.baseVal.width;
-//     measuringPoint.y = Math.random() * svg.viewBox.baseVal.height;
-//     if (boundaryPath.isPointInFill(measuringPoint)) {
-//       i++;
-//       points.push({ x: measuringPoint.x, y: measuringPoint.y });
-//     }
-//   }
-
-//   points.forEach(({ x, y }) => {
-//     const square = document.createElement('div');
-//     square.classList.add('decoration-square');
-//     square.style.left = (x / svg.viewBox.baseVal.width) * 100 + '%';
-//     square.style.top = (y / svg.viewBox.baseVal.height) * 100 + '%';
-//     square.style.backgroundColor = pickRandom(COLORS);
-//     square.addEventListener('mouseenter', changeColorRandomly);
-//     square.addEventListener('touchstart', changeColorRandomly);
-//     squaresContainer.appendChild(square);
-//   });
-// });
-
 function changeColorRandomly({ target }) {
     const withoutCurrentColor = COLORS.filter(color => color !== RGBToHex(target.style.backgroundColor));
     target.style.backgroundColor = pickRandom(withoutCurrentColor);

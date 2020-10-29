@@ -10,6 +10,7 @@ import Lieblingsplatte from './Lieblingsplatte';
 import Vostel from './Vostel';
 import Schnappenburg from './Schnappenburg';
 import PocoLit from './PocoLit';
+import NewBooksInGerman from './NewBooksInGerman';
 
 export default {
     '/projekte/goldencity/': Goldencity,
@@ -24,4 +25,5 @@ export default {
     '/projekte/vostel/': Vostel,
     '/projekte/schnappenburg/': Schnappenburg,
     '/projekte/pocolit/': PocoLit,
+    '/projekte/newbooksingerman/': NewBooksInGerman,
 };
