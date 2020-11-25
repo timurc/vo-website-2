@@ -274,7 +274,7 @@ function Project({ project, activateProject, activeProjects, pathname, openInfoB
             <li className={className}>
                 <div
                     role="button"
-                    tabIndex="1"
+                    tabIndex="0"
                     onClick={() => {
                         activateProject(project.node.fields.slug);
                     }}
